@@ -15,7 +15,7 @@ const Accordion = ({content }) => {
   return (
 
     content.map((item:any,index) => {
-        //console.log(index);
+        console.log(item.question);
          return(
           <>
       

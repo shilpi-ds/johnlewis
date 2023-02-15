@@ -10,6 +10,8 @@ import loc2 from "../images/loc2.svg";
 import loc3 from "../images/loc3.svg";
 import Contact from "../components/locationDetail/contact";
 import CustomMap from "../components/locationDetail/CustomMap";
+import PhotoSlider from "../components/locationDetail/PhotoSlider";
+import Accordion from "../components/commons/Accordion";
 import "../index.css";
 import {
   Template,
@@ -49,7 +51,14 @@ export const config: TemplateConfig = {
       "c_title",
       "description",
       "c_image",
-      "c_seoCta"
+      "c_seoCta",
+      "photoGallery",
+      "c_sliderTitle",
+      "c_relatedFaqs.question",
+      "c_relatedFaqs.answer",
+      //"c_relatedFaqs.question",
+      //"c_relatedFaqs.answer",
+      "c_faqTitle",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -124,15 +133,21 @@ const Location: Template<TemplateRenderProps> = ({
     c_title,
     c_image,
     c_seoCta,
-    
+    photoGallery,
+    c_sliderTitle,
+    c_relatedFaqs,
     timezone,
     yextDisplayCoordinate,
     displayCoordinate,
     cityCoordinate,
+    c_faqTitle,
     name
   } = document;
 
-
+  let imageurl = photoGallery ? photoGallery.map((element: any) => {
+    return element.image.url
+  }) : null;
+console.log(photoGallery);
   return (
 
     <>
@@ -194,7 +209,18 @@ const Location: Template<TemplateRenderProps> = ({
                 </>
                 : ''}
               </div>
-              
+              {photoGallery ?
+              <div className="featured">
+              <h2>{c_sliderTitle}</h2>
+              <div className="photo-slider">{photoGallery && <PhotoSlider photoGallery={photoGallery}/> }</div>
+      </div>
+      : ''}
+        {c_relatedFaqs ?
+      <div className="faq-content">
+        <div className="faq-title">{c_faqTitle}</div>
+        <div className="faqs"><section className="faq-container">{c_relatedFaqs && <Accordion content={c_relatedFaqs}/> }</section></div>
+        </div>
+        :''}
 
           <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
  footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}

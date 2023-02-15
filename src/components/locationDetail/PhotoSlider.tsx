@@ -3,16 +3,27 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 const PhotoSlider = (props: any) => {
-  const { photoGallery, height, width } = props;  
-  const photos = photoGallery.map((element:any) => (   
-
+  const { photoGallery } = props;  
+  console.log(photoGallery);
+  const photos = photoGallery.map((element:any) => (     
 	<SplideSlide>
-    <img height={height} width={width} src={element.url} />
+    <img src={element.image.url} height={400} width={500} alt=""/>
+    <p>{element.description}</p>
+    <p>{element.details}</p>
 	</SplideSlide>    
   ));
   return (
     <>
-	  <Splide aria-label="Photo Slider">
+     
+	  <Splide aria-label="Photo Slider" options={{
+      rewind: true,
+      width : '100%',
+      gap   : '1rem',
+      type: "loop",
+      perPage: 4,
+      perMove: 1
+    }}>
+      
           {photos}
       </Splide>
     </>
