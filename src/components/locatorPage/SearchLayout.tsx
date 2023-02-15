@@ -60,7 +60,7 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
 
 
   const FirstLoad = () => {
-    setCheck(true);
+    //setCheck(true);
     // if (navigator.geolocation) {
     //   navigator.geolocation.getCurrentPosition(
     //     function (position) {

@@ -106,7 +106,7 @@ function UnwrappedGoogleMaps({
     lat: Number,
     lng: Number,
   };
-  console.log(map?.getZoom,"zoom")
+ // console.log(map?.getZoom,"zoom")
   const locationResults = useFetchResults() || [];
   const alternateResult =
     useSearchState(
@@ -542,7 +542,7 @@ function UnwrappedGoogleMaps({
       let slug = slugify(slugString);
       url = `${slug}.html`;
     } else {
-      url = `${result.rawData.slug.toString()}`;
+      url = `${result.rawData.slug.toString()}.html`;
     }
 
     const MarkerContent = (
@@ -570,7 +570,7 @@ function UnwrappedGoogleMaps({
     
             <LocDetails address={result.rawData.address.line1} loc1={loc1} loc2={loc2} loc3={loc3} phone={result.rawData.mainPhone} name={result.rawData.name} hours={result.rawData.hours} timezone={result.rawData.timezone} city={result.rawData.address.city} postcode={result.rawData.address.postalCode} addline1={result.rawData.address.line1} addline2={result.rawData.address.line2}/>
             <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
-            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><a href={url }>Shop Directions</a></button>
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><a href={url }>View Details</a></button>
             
         
        
@@ -586,7 +586,7 @@ function UnwrappedGoogleMaps({
             rel="noopener noreferrer"
             //conversionDetails={conversionDetails_direction}
           >
-            <> View details </>
+            <> Shop Direction </>
           </Link></button>
     </div>
       </div>

@@ -117,7 +117,7 @@ function opentime(e: any) {
   return (
     <div className="bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5">
         <div className="flex justify-between items-center pt-3 ml-4">
-            <h5 className="underline underline-offset-8 font-bold text-lg">{result.rawData.name}</h5>
+            <h5 className="underline underline-offset-8 font-bold text-lg"><a href={result.rawData.slug+".html"}>{result.rawData.name}</a></h5>
             {typeof result.distance != "undefined" ?  
             <p className="pr-6 text-base font-semibold">{metersToMiles(result.distance)} <span>{StaticData.miles}</span></p>
              : ''}
@@ -191,7 +191,7 @@ function opentime(e: any) {
             rel="noopener noreferrer"
             //conversionDetails={conversionDetails_direction}
           >Shop Directions </Link></button>
-            <button className="text-white text-sm py-1.5 bg-black min-w-[11.25rem]"><Link type="button" href={result.rawData.slug} className=" btn notHighlight "
+            <button className="text-white text-sm py-1.5 bg-black min-w-[11.25rem]"><Link type="button" href={result.rawData.slug+".html"} className=" btn notHighlight "
         data-ya-track={`viewStore -${result.rawData.name}`}
         eventName={`viewStore -${result.rawData.name}`}
         rel="noopener noreferrer"
