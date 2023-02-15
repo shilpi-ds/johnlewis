@@ -190,31 +190,25 @@ console.log(photoGallery);
               </div>
           } 
  </div>
+ 
+ <div className="flex mt-[60px] items-center gap-12 justify-center">
+        <div className="Content max-w-[40.875rem]">
+            <h1 className="text-black text-[40px]">{c_title}</h1>
+            <p className="pt-7 pb-[50px]">{description}
+            </p>
+            {c_seoCta.link && c_seoCta.label?
+            <button className="bg-[#141414] text-white px-7 py-2"><a className="" href={c_seoCta.link}>{c_seoCta.label}</a></button>
+            : ''}
+        </div>
 
- <div className="about-content">
-        {c_title ?
-        <>
-                
-                <div className="about-datas">
-                <div className="about-title">{c_title}</div>
-                <p className="about-description">{description}</p>
-                {c_seoCta.link && c_seoCta.label?
-                <div className="button-bx direction-button"><a className="Link btn notHighligh" href={c_seoCta.link}>{c_seoCta.label}</a></div>
-                : ''}
-                <div className="about-image">
-                  {c_image &&
-                    <img src={c_image.url} height={500} width={500} alt=""/>
-                  }</div>
-                </div>
-                </>
-                : ''}
-              </div>
-              {photoGallery ?
-              <div className="featured">
-              <h2>{c_sliderTitle}</h2>
-              <div className="photo-slider">{photoGallery && <PhotoSlider photoGallery={photoGallery}/> }</div>
-      </div>
-      : ''}
+        <div className="images flex relative">
+            <img className="max-w-[34.663rem]" src={c_image.url} alt=""/> 
+            <img className="max-w-[34.663rem] absolute top-10 right-[34px]" src={c_image.url} alt=""/>
+        </div>
+
+    </div>
+ 
+        
         {c_relatedFaqs ?
       <div className="faq-content">
         <div className="faq-title">{c_faqTitle}</div>
