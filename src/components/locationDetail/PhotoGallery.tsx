@@ -1,32 +1,24 @@
 import * as React from "react";
-import gallerybg from "../../images/bg-service.jpg"
+//import gallerybg from "../../images/bg-service.jpg"
 
-const PhotoGallery = (props: any) => {
-
-   const photos = props.photos.map((element:any) => {
-    const {height,url, width}=element;
-    return (<div className="image-frame">
-      <img   height={height}   
-      src={url} // use normal <img> attributes as props
-        width={width}      
-        className="image  "
-       alt="photogallery"
-      >
-      </img>
-    </div>)
+const PhotoGallery = (props?: any) => {
+console.log(props);
+   const photos = props.gallery.map((element:any) => {
+    const {height=30,url, width=30,title}=element;
+    return (<div className="rounded-tl-[20px] rounded-tr-[70px] rounded-br-[20px] rounded-bl-[70px] max-w-[18.813rem] bg-white shadow-md p-3">
+      <a href=""><img className="rounded-tl-[20px] rounded-tr-[70px] rounded-br-[20px] rounded-bl-[70px]" src={url} alt=""/></a></div>
+    )
 });
 
 
   return (
     <>
     
-      <div className="space-y-5 container mx-auto">
-     <div className="gallery-bg"> <img className=" " src={gallerybg} width="38" height="35" alt="gallerybg"/></div> 
-        <div className="text-xl font-semibold text-center">
-         <h1 className="text-red-eb pt-8"> Photos</h1>
-          </div>
-        <div className="photos-row">
-            {photos}
+    <div className="mb-[60px] text-[40px]">
+    <p className="text-center">{props.title}</p>
+    <div className="flex flex-wrap max-w-[1320px] m-auto gap-[2.313rem] gap-y-[4.375rem] mt-10 items-center">
+         
+    {photos}
         </div>
       </div>
     </>
@@ -34,3 +26,4 @@ const PhotoGallery = (props: any) => {
 };
 
 export default PhotoGallery;
+

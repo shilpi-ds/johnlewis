@@ -1,3 +1,5 @@
+export const stagingBaseurl = "https://main-malleably--funky--rodent-sbx-pgsdemo-com.sbx.preview.pagescdn.com/";
+
 export const limit = 5;
 export const radius = 500;
 export const defaultQuery = "";

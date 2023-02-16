@@ -1,6 +1,7 @@
 import * as React from "react";
 import Cta from "../commons/cta";
-import Hours from "../commons/hours";
+//import Hours from "../commons/hours";
+import Hours from "../commons/hourscard";
 import woodtexture from "../../images/wood-texture.jpg";
 import mapimage from "../../images/map.svg";
 import Phonesvg from "../../images/phone.svg";
@@ -52,7 +53,7 @@ const Contact = (props: any) => {
       </div> */}
               {hours && (
                 <Hours
-                  title={"Store Opening Hours"}
+                  
                   additionalHoursText={additionalHoursText}
                   hours={hours}
                   c_specific_day={c_specific_day}

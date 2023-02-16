@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 
 type Hours = {
-  title?: string;
+ 
   hours: Hours;
   children?: React.ReactNode;
   additionalHoursText?: any;

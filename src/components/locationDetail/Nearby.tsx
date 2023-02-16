@@ -1,14 +1,18 @@
 import * as React from "react";
 import ApiCall from "../../Apis/ApiCall";
 import Address from "../commons/Address";
-import GetDirection from "../commons/GetDirection";
-import OpenClose from "../commons/openClose"
-import timesvg from "../../images/loc3.svg"
-import mapimage from "../../images/loc1.svg";
-import Phonesvg from "../../images/loc2.svg"
+import GetDirection from "../commons/GetDirectionloc";
+//import OpenClose from "../commons/openClose"
+import OpenCloseStatus from "../commons/OpenCloseStatus";
+import loc3 from "../../images/loc3.svg"
+import loc1 from "../../images/loc1.svg";
+import loc2 from "../../images/loc2.svg"
 import { Addresssvg, mobilesvg, View_Store } from "../../../sites-global/global";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "@yext/pages/components";
+import { StaticData } from "../../../sites-global/staticData";
+import locDetails from "../locDetails";
+import LocDetails from "../locDetails";
 
 export default function Nearby(props: any) {
   
@@ -65,45 +69,61 @@ export default function Nearby(props: any) {
           if (index > 0) {
             return (
               <>
-                {/* <SplideSlide key={index}> */}
-                  <div className="nearby-card">
-                    <div className="location-name-miles icon-row">
-                      <h2><Link className="inline-block notHighlight" href={`/${location.data.id}`}
-                        data-ya-track={`${location.data.name}`}
-                        eventName={`${location.data.name}`}
-                        rel="noopener noreferrer">{location.data.name}</Link></h2>
+                <div className="bg-white shadow-lg w-[21.875rem]">
+                {/* <p className="text-center">Near by stores</p> */}
 
-                    </div>
-                    <div className="icon-row content-col">
-                      <Address address={location.data.address} />
-                    </div>
-                    <div className="icon-row closeing-div">
-                    {location.data.hours?
-                    <div className="flex open-now-string items-center " data-id={`main-shop-${location.data.id}`} >
-                      <OpenClose timezone={location.data.timezone} hours={location.data.hours} deliveryHours={location.data.hours}></OpenClose>
-                    </div>:
-                    <div className="closeddot notHighlight red-dot">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
-           <circle id="Ellipse_5" data-name="Ellipse 5" cx="4" cy="4" r="4" fill="#ad1e1f"/>
-         </svg>
-                   <div className="hours-info text-lg font-second-main-font closeddot"> 
-                   Closed
-                   </div>
-                   </div>
-                    }
-                    </div> 
-                    <div className="button-bx">
-                      <Link className="btn" href={`/${location.data.id}`}
-                       data-ya-track={`viewstore-${location.data.name}`}
-                       eventName={`viewstore-${location.data.name}`}
-                       rel="noopener noreferrer">
-                        {/* <div dangerouslySetInnerHTML={{__html: View_Store}}/> */}
-                        STORE DETAILS</Link>
-                      <GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Get directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} />
-                      
-                    </div>
-                  </div>
-                {/* </SplideSlide> */}
+        <div className="flex justify-between items-center pt-3 ml-4">
+            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={location.data.slug}
+                data-ya-track={`${location.data.name}`}
+                eventName={`${location.data.name}`}
+                rel="noopener noreferrer">{location.data.name}</Link></h5>
+                {/* {typeof location.distance != "undefined" ? <p className="pr-4 text-xs">{metersToMiles(location.distance)} miles</p>: ''} */}
+        </div>
+
+        <div className="flex mt-4 ml-4">
+            <img className="h-[25px]" src={loc1} alt=""/>
+            <Address address={location.data.address} />
+          
+        </div>
+
+        <div className="flex mt-4 ml-4">
+            <img className="h-[25px]" src={loc2} alt=""/>
+            <p className="text-sm pl-4"> {location.data.mainPhone}</p>
+
+        </div>
+        {location.data.hours?
+        <div className="flex mt-4 ml-4">
+            <img className="h-[25px]" src={loc3} alt=""/>
+            <p className="text-sm pl-4"><OpenCloseStatus timezone={location.data.timezone} hours={location.data.hours} deliveryHours={location.data.hours}/></p>
+        </div>
+        :<div className="closeddot notHighlight red-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="4" cy="4" r="4" fill="#ad1e1f"/>
+    </svg>
+           <div className="hours-info text-lg font-second-main-font closeddot"> 
+           Closed
+           </div>
+           </div>
+    }
+        <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Shop Directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} />
+            </button>
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={location.data.slug+".html"}
+                data-ya-track={`viewstore-${location.data.name}`}
+                eventName={`viewstore-${location.data.name}`}
+                rel="noopener noreferrer">
+                 {/* <div dangerouslySetInnerHTML={{__html: View_Store}}/> */}
+                 View Details</Link></button>
+        </div>
+    </div>
+
+
+
+ 
+
+
+
+
               </>
 
             )
@@ -112,7 +132,7 @@ export default function Nearby(props: any) {
 
         )
         }
-      {/* </Splide> */}
+    
     </>
   )
 }
