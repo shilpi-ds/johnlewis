@@ -4,9 +4,9 @@ import Address from "../commons/Address";
 import GetDirection from "../commons/GetDirectionloc";
 //import OpenClose from "../commons/openClose"
 import OpenCloseStatus from "../commons/OpenCloseStatus";
-import loc3 from "../../images/loc3.svg"
+import loc3 from "../../images/loc3.svg";
 import loc1 from "../../images/loc1.svg";
-import loc2 from "../../images/loc2.svg"
+import loc2 from "../../images/loc2.svg";
 import { Addresssvg, mobilesvg, View_Store } from "../../../sites-global/global";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "@yext/pages/components";

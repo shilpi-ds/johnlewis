@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Splide, SplideSlide,SplideTrack } from '@splidejs/react-splide';
+import RtfConverter from "@yext/rtf-converter";
 import '@splidejs/react-splide/css';
 
 const OfferSlider = (props: any) => {
@@ -15,7 +16,7 @@ const OfferSlider = (props: any) => {
         <div className="w-[full] bg-[#102b2b] text-center text-white flex justify-center items-center">
             <div className="">
                 <h2 className="text-7xl font-semibold">{element.offerTitle}</h2>
-                <p className="text-center font-semibold text-5xl mt-[91px]"><div dangerouslySetInnerHTML={{__html: element.offerDes}}/></p>
+                <div dangerouslySetInnerHTML={{__html: RtfConverter.toHTML(element.offerDes)}} className="text-center font-semibold text-5xl mt-[91px]"/>
                
                 {/* <p className="text-center font-semibold text-5xl mt-[91px]">{element.offerDes}</p> */}
                 {/* <p className="text-5xl font-semibold pt-9">50% - 80% off</p> */}

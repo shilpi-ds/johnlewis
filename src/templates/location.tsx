@@ -17,6 +17,7 @@ import {stagingBaseurl,AnalyticsEnableDebugging,AnalyticsEnableTrackingCookie,Go
 import favicon from "../images/map-center.png";
 import PhotoGallery from "../components/locationDetail/PhotoGallery";
 import OfferSlider from "../components/locationDetail/OfferSlider";
+import StoreGuide from "../components/locationDetail/StoreGuide";
 import Nearby from "../components/locationDetail/Nearby";
 import "../index.css";
 import {
@@ -69,6 +70,8 @@ export const config: TemplateConfig = {
       "c_brandTitle",
       "c_offers",
       "c_brandGallery",
+      "c_storeGuideHeading",
+      "c_storeGuideDetails",
       "c_canonicalURL",
     "c_metaDescription",
     "c_metaTitle",
@@ -328,6 +331,8 @@ const Location: Template<ExternalApiRenderData> = ({
          c_brandTitle,
            c_brandGallery,
           c_offers,
+          c_storeGuideHeading,
+      c_storeGuideDetails,
         name
   } = document;
   
@@ -374,7 +379,7 @@ const Location: Template<ExternalApiRenderData> = ({
   let imageurl = photoGallery ? photoGallery.map((element: any) => {
     return element.image.url
   }) : null;
-//console.log(photoGallery);
+//console.log(c_storeGuideDetails);
   return (
 
     <>
@@ -467,7 +472,12 @@ const Location: Template<ExternalApiRenderData> = ({
         {c_brandGallery &&
         <PhotoGallery gallery={c_brandGallery} title={c_brandTitle}/>
 }
+{c_offers &&
 <OfferSlider offer={c_offers}/>
+}
+
+<StoreGuide title={c_storeGuideHeading} detail={c_storeGuideDetails}/>
+
         {c_relatedFaqs ?
       <div className="faq-content">
         <div className="faq-title">{c_faqTitle}</div>
@@ -475,17 +485,22 @@ const Location: Template<ExternalApiRenderData> = ({
         </div>
         :''}
              {yextDisplayCoordinate || cityCoordinate || displayCoordinate ?
-         <div className="nearby-sec">
-          <div className="container">
-            <div className="sec-title"><p className="text-center">Nearby Stores</p></div>
-             <div className="nearby-sec-inner">
-              
+         
+
+             <div className="mb-[60px]">
+        <h2 className=" text-[40px] text-center">Nearby Stores</h2>
                  <Nearby externalApiData={externalApiData} /> 
-            <button><a href="">View All Locations</a></button>
+                 <div className="button flex justify-center pt-8">
+            <button className="flex gap-2 items-center text-sm text-white bg-[#141414] px-[35px] py-1.5"><a href="/index.html">View All Locations</a>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16L16 12L12 8L10.6 9.4L12.2 11H8V13H12.2L10.6 14.6L12 16ZM12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88333 20.6873 5.825 19.975 4.925 19.075C4.025 18.175 3.31267 17.1167 2.788 15.9C2.26267 14.6833 2 13.3833 2 12C2 10.6167 2.26267 9.31667 2.788 8.1C3.31267 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.31233 8.1 2.787C9.31667 2.26233 10.6167 2 12 2C13.3833 2 14.6833 2.26233 15.9 2.787C17.1167 3.31233 18.175 4.025 19.075 4.925C19.975 5.825 20.6873 6.88333 21.212 8.1C21.7373 9.31667 22 10.6167 22 12C22 13.3833 21.7373 14.6833 21.212 15.9C20.6873 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6873 15.9 21.212C14.6833 21.7373 13.3833 22 12 22Z" fill="#FFFCF8"/>
+                </svg>
+            </button>                    
+        </div>
             </div> 
-          </div>
+         
           
-        </div>  : ''}
+          : ''}
 
           <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
  footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
