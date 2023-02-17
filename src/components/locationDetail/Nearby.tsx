@@ -11,8 +11,8 @@ import { Addresssvg, mobilesvg, View_Store } from "../../../sites-global/global"
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "@yext/pages/components";
 import { StaticData } from "../../../sites-global/staticData";
-import locDetails from "../locDetails";
-import LocDetails from "../locDetails";
+//import locDetails from "../locDetails";
+//import LocDetails from "../locDetails";
 
 export default function Nearby(props: any) {
   

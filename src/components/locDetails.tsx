@@ -21,12 +21,12 @@ timezone?:any;
 
 const locDetails = (props: details) => {
   const { address, loc1 ,loc2,loc3,phone,name,hours,timezone,city,postcode,addline1,addline2} = props;
-  console.log(props);
+  //console.log(props);
   return (
 <>
   
 
-            <h5 className="underline underline-offset-8 font-medium text-lg ml-6 pt-4">{name}</h5>
+            
             <div className="Store_location ml-6 mt-5 flex">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle opacity="0.25" cx="12.5" cy="12.5" r="12" fill="#EEEEEE" stroke="#141414" />

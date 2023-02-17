@@ -392,6 +392,7 @@ const Location: Template<ExternalApiRenderData> = ({
     </div>
           <div className="Main flex mx-9 mt-5">
           <div className="Storeinfo min-w-[20.563rem] bg-white drop-shadow-md">
+          <h5 className="underline underline-offset-8 font-medium text-lg ml-6 pt-4">{name}</h5>
           <LocDetails address={address.line1} loc1={loc1} loc2={loc2} loc3={loc3} phone={mainPhone} name={name} hours={hours} timezone={timezone} city={address.city} postcode={address.postalCode} addline1={address.line1} addline2={address.line2}/>
           
         {/* <ul className="">
