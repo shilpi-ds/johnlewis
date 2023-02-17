@@ -235,7 +235,7 @@ const DayRow = (props: DayRow) => {
     }
   }
   return (
-    <tr className={isToday ? "currentDay" : ""}>
+    <div className={isToday ? "currentDay" : ""}>
       {Status ? (
         <td className="capitalize text-left pl-1 pr-4 dayName">
           <span>
@@ -318,7 +318,7 @@ const DayRow = (props: DayRow) => {
           <span className="time-hours">Closed</span>
         </td>
       )}
-    </tr>
+    </div>
   );
 };
 

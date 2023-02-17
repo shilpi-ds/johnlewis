@@ -14,15 +14,16 @@ import { Address } from "../types/search/locations";
 import { useSearchActions } from "@yext/search-headless-react";
 import { useEffect } from "react";
 import SearchLayout from "../components/locatorPage/SearchLayout";
-import {stagingBaseurl, favicon, AnalyticsEnableDebugging, AnalyticsEnableTrackingCookie} from "../../sites-global/global"
+import { AnalyticsEnableDebugging, AnalyticsEnableTrackingCookie } from "../../sites-global/global"
 import Newsletter from "../components/locatorPage/Newsletter";
 import { JsonLd } from "react-schemaorg";
 import { StaticData } from "../../sites-global/staticData";
+import favicon from "../images/john-lewis.svg";
 import {
   AnalyticsProvider,
   AnalyticsScopeProvider,
 } from "@yext/pages/components";
-import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
+import {stagingBaseurl, AnswerExperienceConfig ,GoogleSearchConsole} from "../config/answersHeadlessConfig";
 
  export const config: TemplateConfig = {
    stream: {
@@ -48,113 +49,150 @@ import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
 export const getPath: GetPath<TemplateProps> = () => {
   return `/index.html`;
 };
-// export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-//   relativePrefixToRoot,
-//   path,
-//   document,
-// }): HeadConfig => {
-//  return {
-//    title:`${document.c_meta_title?document.c_meta_title:`Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
-//    charset: "UTF-8",
-//    viewport: "width=device-width, initial-scale=1",
-//    tags: [
-//      {
-//        type: "meta",
-//        attributes: {
-//          name: "description",
-//          content: `${document.c_meta_description?document.c_meta_description:`View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
-//        },
-//      },
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+  relativePrefixToRoot,
+  path,
+  document,
+}): HeadConfig => {
+  // <meta name="google-site-verification" content="WIqhwAw2ugRAKEYRRqis1ZfUBbnWe_AXSoDltHceCbI" />
+  let metaDescription = document.c_metaDescription
+    ? document.c_metaDescription
+    : `${document.name} | Shop new season trends in homeware, furniture and fashion at John Lewis & Partners. Discover the latest beauty products and browse must-have electricals, including iPads and TVs. Find gifts and much more at johnlewis.com.`;
+  let metaTitle = document.c_metaTitle
+    ? document.c_metaTitle
+    : `${document.name} - John Lewis & Partners | Homeware, Fashion, Electricals & More`;
 
-//      {
-//        type: "meta",
-//        attributes: {
-//          name: "author",
-//          content: StaticData.Brandname,
-//        },
-//      },
+  return {
+    title: metaTitle,
+    charset: "UTF-8",
+    viewport:
+      "width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=0",
+    tags: [
+      {
+        type: "meta",
+        attributes: {
+          name: GoogleSearchConsole.name,
+          content: GoogleSearchConsole.content,
+        },
+      },
+      {
+        type: "link",
+        attributes: {
+          rel: "icon",
+          type: "image/png",
+          href: favicon,
+        },
+      },
 
-//      {
-//        type: "meta",
-//        attributes: {
-//          name: "robots",
-//          content: "noindex, nofollow",
-//        },
-//      },
-//      {
-//       type: "link",
-//       attributes: {
-//         rel: "shortcut icon",
-//         href: favicon,
-//       },
-//     },
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: `${metaDescription}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: "John Lewis",
+        },
+      },
 
-//      {
-//        type: "link",
-//        attributes: {
-//          rel: "canonical",
-//          href: `${
-//            document._site.c_canonical?document.c_canonical:stagingBaseurl
-            
-//          }`,
-//        },
-//      },
- 
-//      {
-//        type: "meta",
-//        attributes: {
-//          property: "og:description",
-//          content: `${document.c_meta_description?document.c_meta_description:`View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
-//        },
-//      },
-//      {
-//        type: "meta",
-//        attributes: {
-//          property: "og:title",
-//          content: `${document.c_meta_title?document.c_meta_title:`Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
-//        },
-//      },
-//      {
-//        type: "meta",
-//        attributes: {
-//          property: "og:image",
-//          content: favicon,
-//        },
-//      },
-//      {
-//       type: "meta",
-//       attributes: {
-//         name: "twitter:card",
-//         content: "summary",
-//       },
-//     },
-//     {
-//       type: "meta",
-//       attributes: {
-//         name: "twitter:description",
-//         content:`${document.c_meta_description?document.c_meta_description:`View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`}`,
-//       },
-//     },
-//     {
-//       type: "meta",
-//       attributes: {
-//         name: "twitter:title",
-//         content: `${document.c_meta_title?document.c_meta_title:`Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`}`,
-//       },
-//     },
-//     {
-//       type: "meta",
-//       attributes: {
-//         name: "twitter:image",
-//         content: favicon
-//       },
-//     },
-   
-//    ],
-   
-//  };
-// };
+      {
+        type: "meta",
+        attributes: {
+          name: "robots",
+          content: `${
+            document._site.c_robotsTag
+              ? document._site.c_robotsTag
+              : "noindex, nofollow"
+          }`,
+        },
+      },
 
+      {
+        type: "link",
+        attributes: {
+          rel: "canonical",
+          href: `${
+            document.c_canonical
+              ? document.c_canonical
+              : stagingBaseurl
+          }`,
+        },
+      },
+      // og tags
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `${metaDescription}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:url",
+          content: stagingBaseurl,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: `${favicon}`,
+        },
+      },
+      // twitter tag
+      {
+        type: "meta",
+        attributes: {
+          property: "twitter:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:card",
+          content: "summary",
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:url",
+          content: stagingBaseurl,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:description",
+          content: `${metaDescription}`,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:image",
+          content: `${favicon}`,
+        },
+      },
+     ],
+  };
+};
 const Locator: Template<TemplateRenderProps>= ({
    document,
    __meta,
