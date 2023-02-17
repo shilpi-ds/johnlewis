@@ -69,7 +69,8 @@ export default function Nearby(props: any) {
           if (index > 0) {
             return (
               <>
-                <div className="bg-white shadow-lg w-[21.875rem]">
+              
+                <div className="bg-white shadow-lg w-[21.875rem] box_shadow drop-shadow-md">
                 {/* <p className="text-center">Near by stores</p> */}
 
         <div className="flex justify-between items-center pt-3 ml-4">
@@ -82,7 +83,7 @@ export default function Nearby(props: any) {
 
         <div className="flex mt-4 ml-4">
             <img className="h-[25px]" src={loc1} alt=""/>
-            <Address address={location.data.address} />
+            <div className="pl-4"><Address address={location.data.address} /></div>
           
         </div>
 

@@ -849,9 +849,9 @@ margin-top: 200px;
   display: flex;
   
 }
-.address .notHighlight {
+/*.address .notHighlight {
   padding-left: 30px;
-}
+}*/
 .loc-phone{
   display: flex;
   margin-top: 15px;
@@ -911,4 +911,14 @@ margin-top: 200px;
   background-color: #000;
     color: #fff;
 }
+.location-near{
 
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+    margin-top: 40px;
+
+}
+.box_shadow{
+    box-shadow :8px 8px 0px #F1F6FA;
+}

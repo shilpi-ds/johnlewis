@@ -14,7 +14,7 @@ import CustomMap from "../components/locationDetail/CustomMap";
 import PhotoSlider from "../components/locationDetail/PhotoSlider";
 import Accordion from "../components/commons/Accordion";
 import {stagingBaseurl,AnalyticsEnableDebugging,AnalyticsEnableTrackingCookie,GoogleSearchConsole ,AnswerExperienceConfig} from "../../src/config/answersHeadlessConfig";
-import favicon from "../images/map-center.png";
+import favicon from "../images/john-lewis.svg";
 import PhotoGallery from "../components/locationDetail/PhotoGallery";
 import OfferSlider from "../components/locationDetail/OfferSlider";
 import StoreGuide from "../components/locationDetail/StoreGuide";
@@ -66,6 +66,7 @@ export const config: TemplateConfig = {
       "c_relatedFaqs.answer",
       //"c_relatedFaqs.question",
       //"c_relatedFaqs.answer",
+      "c_johnLogo",
       "c_faqTitle",
       "c_brandTitle",
       "c_offers",
@@ -226,10 +227,8 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           property: "og:image",
-          content: `${
-            document.c_byradoLogo
-              ? document.c_byradoLogo.image.url
-              : "https://a.mktgcdn.com/p-sandbox/cgYD0VBchE2WzmtcTHsS1MlzQyFCTlbcmgppR7wnNE8/600x120.png"
+          content: `${favicon
+            //document.document.c_johnLogo.image.url
           }`,
         },
       },
@@ -266,10 +265,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:image",
-          content: `${
-            document.c_byradoLogo
-              ? document.c_byradoLogo.image.url
-              : "https://a.mktgcdn.com/p-sandbox/cgYD0VBchE2WzmtcTHsS1MlzQyFCTlbcmgppR7wnNE8/600x120.png"
+          content: `${favicon
+            // document.c_johnLogo.image.url
+              
           }`,
         },
       },
@@ -335,7 +333,7 @@ const Location: Template<ExternalApiRenderData> = ({
       c_storeGuideDetails,
         name
   } = document;
-  
+ // console.log(_site);
 /**
  * This allows the user to define a function which will take in their template
  * data and procude a HeadConfig object. When the site is generated, the HeadConfig
@@ -489,7 +487,7 @@ const Location: Template<ExternalApiRenderData> = ({
 
              <div className="mb-[60px]">
         <h2 className=" text-[40px] text-center">Nearby Stores</h2>
-                 <Nearby externalApiData={externalApiData} /> 
+        <div className="location-near">  <Nearby externalApiData={externalApiData} /> </div>
                  <div className="button flex justify-center pt-8">
             <button className="flex gap-2 items-center text-sm text-white bg-[#141414] px-[35px] py-1.5"><a href="/index.html">View All Locations</a>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
