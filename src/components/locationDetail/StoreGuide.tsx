@@ -1,16 +1,14 @@
 import * as React from "react";
 import store from "../../images/store-guide.png";
 import { useState } from 'react';
-import Paper from "@material-ui/core/Paper";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
 import { Link } from "@yext/pages/components";
 import $ from "jquery";
+
 const StoreGuide = (props: any) => {
   const { guide } = props;  
  // console.log(props);
  
-  const [section, setSection] = React.useState(0);
+  const [section, setSection] = useState(0);
     
 
   return (
