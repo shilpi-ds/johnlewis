@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/*@font-face {
   font-family: 'futura_ptdemi';
   src: url('./fonts/ftn65-webfont.woff2') format('woff2'),
        url('./fonts/ftn65-webfont.woff') format('woff');
@@ -20,7 +20,7 @@
   font-style: normal;
   font-display: swap;
 }
-
+*/
 
 @media (min-width: 768px) {
 	html { @apply  text-[80%]}
@@ -366,7 +366,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .address-main-sec .button-bx{  @apply mt-5 justify-start ml-0 md:ml-0}
 .address-main-sec .button-bx .btn{  @apply min-w-[10.25rem] w-40 py-3 uppercase font-second-main-font !border-none hover:!bg-hover-btn leading-5  md:w-auto  }
 .availability-col{  @apply mt-4  mb-0 pl-0    !flex-row flex-wrap}
-.map-sec{  @apply  hidden md:block w-full mt-5 lg:mt-0  h-[25rem] lg:h-auto  lg:w-[calc(100%_-_51.625rem)]}
+.map-sec{  @apply  hidden md:block w-full mt-5 lg:mt-0  h-[25rem] lg:h-auto}
 .map-sec.without-hours{  @apply md:w-[48%] md:mt-0 lg:w-[calc(100%_-_26rem)]}
 
 .about-sec{@apply  lg:bg-light-grey relative px-5 mt-0 lg:mt-7 pt-0 lg:py-12 lg:px-14   }
@@ -921,4 +921,8 @@ margin-top: 200px;
 }
 .box_shadow{
     box-shadow :8px 8px 0px #F1F6FA;
+}
+.map-sec
+{
+  margin-left: 15px;
 }

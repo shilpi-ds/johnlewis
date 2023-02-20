@@ -115,7 +115,8 @@ function opentime(e: any) {
 //  }
   
   return (
-    <div className="bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5">
+    <div className={`result-list-inner-${result.index} result onhighLight bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5"`}>
+      
         <div className="flex justify-between items-center pt-3 ml-4">
             <h5 className="underline underline-offset-8 font-bold text-lg"><a href={result.rawData.slug+".html"}>{result.rawData.name}</a></h5>
             {typeof result.distance != "undefined" ?  

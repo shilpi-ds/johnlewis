@@ -13,7 +13,7 @@ module.exports = {
       'black': '#000000',
       'Dark-red': '#02a6db',
       'gray': '#383838',
-      'hover-btn': '#017195',
+      'hover-btn': '#000000',
       'footer-bg': '#1e293e',
       'red': '#02a6db',
       'red-eb': '#02a6db',
@@ -22,7 +22,7 @@ module.exports = {
       'gray-light': '#ececec',
       'button-light': '#F5F5F7',
       'border-light': '#B2B3B5',
-      'seachbutton-bg':'#E8E8ED',
+      'seachbutton-bg':'#000000',
       'nav-link': '#747474',
       'nav-li-border': '#d7d7d7',
       'right-menu-b': '#ebebeb',
@@ -41,8 +41,8 @@ module.exports = {
     },
 
     fontFamily: {
-      'main-font': ['"Helvetica_Neue", Georgia, Arial, sans-serif'],
-      'second-main-font': ['"futura_ptdemi", Georgia, Arial, sans-serif'],
+      'main-font': ['"Gill Sans MT", Georgia, Arial, sans-serif'],
+      'second-main-font': ['"Gill Sans", Georgia, Arial, sans-serif'],
     },
 
     extend: {
