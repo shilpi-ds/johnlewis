@@ -406,7 +406,7 @@ const City: Template<TemplateRenderProps> = ({
           itemListElement: breadcrumbScheme,
         }}
       />
-      <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
+      <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
         <BreadCrumbs
           name={name}
           address={address}
@@ -422,7 +422,7 @@ const City: Template<TemplateRenderProps> = ({
               John Lewis Stores in {name}
               </h2>
             </div>
-            <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
+            <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem] gap-12">
               {childrenDivs}
             </div>
           </div>

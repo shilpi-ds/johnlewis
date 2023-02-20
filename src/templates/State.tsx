@@ -287,7 +287,7 @@ const region: Template<TemplateRenderProps> = ({
   return (
     <>
         {/* <PageLayout gdata={_site}> */}
-        <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
+        <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
         <BreadCrumbs
             name={name}
             parents={dm_directoryParents}

@@ -308,7 +308,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 
   return (
     <>
-     <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
+     <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
         <BreadCrumbs
           name={regionNames.of(name)}
           address={address}

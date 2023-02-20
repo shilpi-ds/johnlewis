@@ -22,7 +22,7 @@ type Props = {
     return (
         <>
         
-      <Header logo={gdata.c_johnLogo} links={gdata.c_headerMenus} topmenu={gdata.c_headerTopMenus}/>
+      <Header logo={gdata.c_johnLogo} links={gdata.c_headerMenus} topmenu={gdata.c_headerTopMenus} free={gdata.c_freeDelivery}/>
      
       <div className="flex items-center gap-3 text-sm font-medium">
       <a href="#" className="home"><img className="h-9 pl-9 my-3" src={Home} alt=""/></a>
