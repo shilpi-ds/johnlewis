@@ -5,6 +5,7 @@ import constant from "../constant";
 import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
+import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
 // import { stagingBaseUrl } from "../constants";
 // import bannerImage from "../images/banner.png"
 import "../index.css";
@@ -84,130 +85,143 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   path,
   document,
 }): HeadConfig => {
-  var canonical="";
-   document?.dm_directoryChildren?.map((entity: any) => {
-      canonical=  entity.address.countryCode?.toLowerCase().replaceAll(" ", "-") + '/' +  entity.address.region?.toLowerCase().replaceAll(" ", "-");
-          })
+  let metaDescription = document.c_metaDescription
+  ? document.c_metaDescription
+  : `${document.name} | Shop new season trends in homeware, furniture and fashion at John Lewis & Partners. Discover the latest beauty products and browse must-have electricals, including iPads and TVs. Find gifts and much more at johnlewis.com.`;
+let metaTitle = document.c_metaTitle
+  ? document.c_metaTitle
+  : `${document.name} - John Lewis & Partners | Homeware, Fashion, Electricals & More`;
 
-  return {
-    title: `${document.c_meta_title?document.c_meta_title:`Byredo Stores in ${document.name} | Find a Local Store`}`,
-    charset: "UTF-8",
-    viewport: "width=device-width, initial-scale=1",
-    tags: [
-      {
-        type: "link",
-        attributes: {
-          rel: "shortcut icon",
-          href: favicon,
-        },
+return {
+  title: metaTitle,
+  charset: "UTF-8",
+  viewport:
+    "width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=0",
+  tags: [
+    {
+      type: "meta",
+      attributes: {
+        name: GoogleSearchConsole.name,
+        content: GoogleSearchConsole.content,
       },
-        {
-          type: "meta",
-          attributes: {
-            name: "description",
-            content:`${document.c_meta_description?document.c_meta_description:`Use this page to find your nearest Byredo store in ${document.name} and discover the location details you need to visit us today.`}`,
-          },
-        },
-
-      //   {
-      //     type: "meta",
-      //     attributes: {
-      //       name: "title",
-      //       content: `${document.c_metaTitle}`,
-      //     },
-      //   },
-        {
-          type: "meta",
-          attributes: {
-            name: "author",
-            content: StaticData.Brandname,
-          },
-        },
-        {
-          type: "meta",
-          attributes: {
-            name: "keywords",
-            content: document.name,
-          },
-        },
-        {
-          type: "meta",
-          attributes: {
-            name: "robots",
-            content: "noindex, nofollow",
-          },
-        },
-
-        {
-          type: "link",
-          attributes: {
-            rel: "canonical",
-            href: `${
-              stagingBaseurl 
-                 ? stagingBaseurl + canonical + "/"+ document.slug + ".html"
-                 : "/" + document.slug + ".html"
-            }`,
-          },
-        },
-      //   // /og tags
-
-        {
-          type: "meta",
-          attributes: {
-            property: "og:url",
-            content: `${
-              stagingBaseurl 
-                 ? stagingBaseurl + canonical + "/"+ document.slug + ".html"
-                 : "/" + document.slug + ".html"
-            }`,
-          },
-        },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:description",
-            content: `${document.c_meta_description?document.c_meta_description:`Find Byredo Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`,
-          },
-        },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:title",
-            content: `${document.name}`,
-          },
-        },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:image",
-            content: favicon,
-          },
-        },
-
-      {
-        type: "meta",
-        attributes: {
-          name: "twitter:card",
-          content: "summary",
-        },
+    },
+    {
+      type: "link",
+      attributes: {
+        rel: "icon",
+        type: "image/png",
+        href: favicon,
       },
-      {
-        type: "meta",
-        attributes: {
-          name: "twitter:url",
-          content: `/${document.slug?document.slug:`${document.name?.toLowerCase()}`}.html`,
-        },
-      },
+    },
 
-      {
-        type: "meta",
-        attributes: {
-          name: "twitter:description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find Byredo Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`
-        },
+    {
+      type: "meta",
+      attributes: {
+        name: "description",
+        content: `${metaDescription}`,
       },
-    ],
-  };
+    },
+    {
+      type: "meta",
+      attributes: {
+        name: "author",
+        content: "John Lewis",
+      },
+    },
+
+    {
+      type: "meta",
+      attributes: {
+        name: "robots",
+        content: `${
+          document._site.c_robotsTag
+            ? document._site.c_robotsTag
+            : "noindex, nofollow"
+        }`,
+      },
+    },
+
+    {
+      type: "link",
+      attributes: {
+        rel: "canonical",
+        href: `${
+          document.c_canonical
+            ? document.c_canonical
+            : stagingBaseurl
+        }`,
+      },
+    },
+    // og tags
+    {
+      type: "meta",
+      attributes: {
+        property: "og:title",
+        content: `${metaTitle}`,
+      },
+    },
+    {
+      type: "meta",
+      attributes: {
+        property: "og:description",
+        content: `${metaDescription}`,
+      },
+    },
+    {
+      type: "meta",
+      attributes: {
+        property: "og:url",
+        content: stagingBaseurl,
+      },
+    },
+
+    {
+      type: "meta",
+      attributes: {
+        property: "og:image",
+        content: `${favicon}`,
+      },
+    },
+    // twitter tag
+    {
+      type: "meta",
+      attributes: {
+        property: "twitter:title",
+        content: `${metaTitle}`,
+      },
+    },
+    {
+      type: "meta",
+      attributes: {
+        name: "twitter:card",
+        content: "summary",
+      },
+    },
+    {
+      type: "meta",
+      attributes: {
+        name: "twitter:url",
+        content: stagingBaseurl,
+      },
+    },
+
+    {
+      type: "meta",
+      attributes: {
+        name: "twitter:description",
+        content: `${metaDescription}`,
+      },
+    },
+
+    {
+      type: "meta",
+      attributes: {
+        name: "twitter:image",
+        content: `${favicon}`,
+      },
+    },
+   ],
+};
 };
 
 const City: Template<TemplateRenderProps> = ({
