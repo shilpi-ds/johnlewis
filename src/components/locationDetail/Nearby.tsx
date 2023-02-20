@@ -89,7 +89,7 @@ export default function Nearby(props: any) {
 
         <div className="flex mt-4 ml-4">
             <img className="h-[25px]" src={loc2} alt=""/>
-            <p className="text-sm pl-4"> {location.data.mainPhone}</p>
+            <p className="text-sm pl-4"><a href={`tel:${location.data.mainPhone}`}> {location.data.mainPhone}</a></p>
 
         </div>
         {location.data.hours?

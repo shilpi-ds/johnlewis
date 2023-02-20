@@ -6,9 +6,9 @@ import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
 import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
-import GetDirection from "../commons/GetDirectionloc";
+//import GetDirectionloc from "../commons/GetDirectionloc";
 //import OpenClose from "../commons/openClose"
-import OpenCloseStatus from "../commons/OpenCloseStatus";
+import OpenCloseStatus from "../components/commons/OpenCloseStatus";
 // import { stagingBaseUrl } from "../constants";
 // import bannerImage from "../images/banner.png"
 import "../index.css";
@@ -318,7 +318,7 @@ const City: Template<TemplateRenderProps> = ({
 
         <div className="flex mt-4 ml-4">
             <img className="h-[25px]" src={loc2} alt=""/>
-            <p className="text-sm pl-4"> {entity.mainPhone}</p>
+            <p className="text-sm pl-4"><a  href={`tel:${entity.mainPhone}`}>{entity.mainPhone}</a></p>
 
         </div>
         {entity.hours?
@@ -336,7 +336,7 @@ const City: Template<TemplateRenderProps> = ({
            </div>
     }
         <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
-            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirection buttonText="Shop Directions" address={entity.address} latitude={entity.displayCoordinate ? entity.displayCoordinate.latitude : entity.yextDisplayCoordinate.latitude} longitude={entity.displayCoordinate ? entity.displayCoordinate.longitude : entity.yextDisplayCoordinate.longitude} />
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirectionloc buttonText="Shop Directions" address={entity.address} latitude={entity.displayCoordinate ? entity.displayCoordinate.latitude : entity.yextDisplayCoordinate.latitude} longitude={entity.displayCoordinate ? entity.displayCoordinate.longitude : entity.yextDisplayCoordinate.longitude} />
             </button>
             <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={entity.slug+".html"}
                 data-ya-track={`viewstore-${entity.name}`}
@@ -419,7 +419,7 @@ const City: Template<TemplateRenderProps> = ({
           <div className="container mx-auto">
             <div className="sec-title">
               <h2>
-              Byredo Stores in {name}
+              John Lewis Stores in {name}
               </h2>
             </div>
             <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
