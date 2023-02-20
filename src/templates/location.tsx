@@ -4,6 +4,7 @@ import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
 import GetDirection from "../components/commons/GetDirectionloc";
 import LocDetails from "../components/locDetails";
+import Breadcrumb from "../components/layouts/Breadcrumb";
 import OpenClose from "../components/commons/openClose";
 import OpenCloseStatus from "../components/commons/OpenCloseStatus";
 import loc1 from "../images/loc1.svg";
@@ -13,13 +14,16 @@ import Contact from "../components/locationDetail/contact";
 import CustomMap from "../components/locationDetail/CustomMap";
 import PhotoSlider from "../components/locationDetail/PhotoSlider";
 import Accordion from "../components/commons/Accordion";
-import {stagingBaseurl,AnalyticsEnableDebugging,AnalyticsEnableTrackingCookie,GoogleSearchConsole ,AnswerExperienceConfig} from "../../src/config/answersHeadlessConfig";
+import {stagingBaseurl,GoogleSearchConsole ,AnswerExperienceConfig} from "../../src/config/answersHeadlessConfig";
 import favicon from "../images/john-lewis.svg";
 import PhotoGallery from "../components/locationDetail/PhotoGallery";
 import OfferSlider from "../components/locationDetail/OfferSlider";
 import StoreGuide from "../components/locationDetail/StoreGuide";
 import Nearby from "../components/locationDetail/Nearby";
+import BreadCrumbs from "../components/layouts/Breadcrumb";
+import {apikey_for_entity, baseuRL,AnalyticsEnableDebugging,AnalyticsEnableTrackingCookie} from "../../sites-global/global";
 import "../index.css";
+import { JsonLd } from "react-schemaorg";
 import {
   Template,
   GetPath,
@@ -77,6 +81,9 @@ export const config: TemplateConfig = {
     "c_metaDescription",
     "c_metaTitle",
     "c_robotsTag",
+    "dm_directoryParents.name",
+    "dm_directoryParents.slug",
+    "dm_directoryParents.meta.entityType",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -195,7 +202,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         attributes: {
           rel: "canonical",
           href: `${
-            document.c_canonical ? document.c_canonical : stagingBaseurl +  url
+            document.c_canonicalURL? document.c_canonicalURL : stagingBaseurl +  url
           }`,
         },
       },
@@ -330,9 +337,125 @@ const Location: Template<ExternalApiRenderData> = ({
            c_brandGallery,
           c_offers,
           c_storeGuideHeading,
+          dm_directoryParents,
       c_storeGuideDetails,
         name
   } = document;
+  let templateData = { document: document, __meta: __meta };
+  let hoursSchema = [];
+  let breadcrumbScheme = [];
+  for (var key in hours) {
+    if (hours.hasOwnProperty(key)) {
+      let openIntervalsSchema = "";
+      if (key !== "holidayHours") {
+        if (hours[key].isClosed) {
+          openIntervalsSchema = {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: key,
+          };
+        } else {
+          let end = "";
+          let start = "";
+          if (typeof hours[key].openIntervals != "undefined") {
+            let openIntervals = hours[key].openIntervals;
+            for (var o in openIntervals) {
+              if (openIntervals.hasOwnProperty(o)) {
+                end = openIntervals[o].end;
+                start = openIntervals[o].start;
+              }
+            }
+          }
+          openIntervalsSchema = {
+            "@type": "OpeningHoursSpecification",
+            closes: end,
+            dayOfWeek: key,
+            opens: start,
+          };
+        }
+      } else {
+      }
+
+      hoursSchema.push(openIntervalsSchema);
+    }
+  }
+  document.dm_directoryParents &&
+  document.dm_directoryParents.map((i: any, index: any) => {
+    if (i.meta.entityType.id == "ce_country") {
+      document.dm_directoryParents[index].name =
+        document.dm_directoryParents[index].name;
+      document.dm_directoryParents[index].slug =
+        document.dm_directoryParents[index].slug;
+
+      breadcrumbScheme.push({
+        "@type": "ListItem",
+        position: index,
+        item: {
+          "@id":
+            stagingBaseurl +
+       
+            document.dm_directoryParents[index].slug +
+            ".html",
+          name: i.name,
+        },
+      });
+    } else if (i.meta.entityType.id == "ce_region") {
+      let url = "";
+      document.dm_directoryParents.map((j: any) => {
+        if (
+          j.meta.entityType.id != "ce_region" &&
+          j.meta.entityType.id != "ce_city" &&
+          j.meta.entityType.id != "ce_root"
+        ) {
+          //console.log(j, "j");
+          url = url  + j.slug;
+        }
+      });
+      breadcrumbScheme.push({
+        "@type": "ListItem",
+        position: index,
+        item: {
+          "@id":
+            stagingBaseurl +
+            url + "/" +
+            document.dm_directoryParents[index].slug +
+            ".html",
+          name: i.name,
+        },
+      });
+    } else if (i.meta.entityType.id == "ce_city") {
+      let url = "";
+      document.dm_directoryParents.map((j: any) => {
+        if (
+          j.meta.entityType.id != "ce_city" &&
+          j.meta.entityType.id != "ce_root"
+        ) {
+          //console.log(j, "j");
+          url = url  + "/" + j.slug;
+        }
+      });
+      breadcrumbScheme.push({
+        "@type": "ListItem",
+        position: index,
+        item: {
+          "@id":
+            stagingBaseurl +
+            url +"/" +
+            document.dm_directoryParents[index].slug +
+            ".html",
+          name: i.name,
+        },
+      });
+    }
+  });
+
+breadcrumbScheme.push({
+  "@type": "ListItem",
+  position: 4,
+  item: {
+    "@id": stagingBaseurl + path,
+    name: document.name,
+  },
+});
  // console.log(_site);
 /**
  * This allows the user to define a function which will take in their template
@@ -384,7 +507,42 @@ const Location: Template<ExternalApiRenderData> = ({
 {/* <PageLayout gdata={_site}> */}
      
 <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
+<JsonLd<Store>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "DepartmentStore",
+          name: name,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: address.line1,
+            addressLocality: address.city,
+            addressRegion: address.region,
+            postalCode: address.postalCode,
+            addressCountry: address.countryCode,
+          },
+          openingHoursSpecification: hoursSchema,
+          description: description,
+          image: imageurl,
+          telephone: mainPhone,
+          url: `${document.c_canonicalURL?document.c_canonicalURL:stagingBaseurl}${slug?slug:`${name}`}.html`
+        }}
+      />
+      <JsonLd<BreadcrumbList>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+
+          itemListElement: breadcrumbScheme,
+        }}
+      />
+<BreadCrumbs
+          name={name}
+          address={address}
+          parents={dm_directoryParents}
+          baseUrl={relativePrefixToRoot}
+        ></BreadCrumbs>
 <HeaderBanner title={_site.c_bannerTitle} description={_site.c_bannerDescription} himage={_site.c_bannerImage.image.url} blabel={_site.c_bannerUrl.label} burl={_site.c_bannerUrl.link}/>
+
      
 
           <div className="mt-3 bg-[#F1F6FA]">
@@ -487,7 +645,7 @@ const Location: Template<ExternalApiRenderData> = ({
          
           
           : ''}
-
+ 
           <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
  footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
  footer5cta={_site.c_footer5Cta}/>

@@ -2,6 +2,9 @@ import * as React from "react";
 // import Banner from "../components/banner";
 import GetDirectionloc from "../components/commons/GetDirectionloc";
 import constant from "../constant";
+import Header from "../components/layouts/header";
+import Footer from "../components/layouts/footer";
+import HeaderBanner from "../components/commons/HeaderBanner";
 // import { stagingBaseUrl } from "../constants";
 // import bannerImage from "../images/banner.png"
 import "../index.css";
@@ -384,13 +387,14 @@ const City: Template<TemplateRenderProps> = ({
           itemListElement: breadcrumbScheme,
         }}
       />
-      <PageLayout gdata={_site}>
+      <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
         <BreadCrumbs
           name={name}
           address={address}
           parents={dm_directoryParents}
           baseUrl={relativePrefixToRoot}
         ></BreadCrumbs>
+ <HeaderBanner title={_site.c_bannerTitle} description={_site.c_bannerDescription} himage={_site.c_bannerImage.image.url} blabel={_site.c_bannerUrl.label} burl={_site.c_bannerUrl.link}/>
 
         <div className="content-list city-page">
           <div className="container mx-auto">
@@ -404,7 +408,9 @@ const City: Template<TemplateRenderProps> = ({
             </div>
           </div>
         </div>
-      </PageLayout>
+        <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
+ footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
+ footer5cta={_site.c_footer5Cta}/>
     </>
   );
 };

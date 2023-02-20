@@ -10,11 +10,14 @@ import {
   GetHeadConfig,
   HeadConfig,
 } from "@yext/pages";
+import Header from "../components/layouts/header";
+import Footer from "../components/layouts/footer";
+import HeaderBanner from "../components/commons/HeaderBanner";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
 import constant from "../constant";
 import Banner from "../components/locationDetail/banner";
 import { StaticData } from "../../sites-global/staticData";
-import PageLayout from "../components/layouts/PageLayout";
+//import PageLayout from "../components/layouts/PageLayout";
 import {regionNames, stagingBaseurl } from "../../sites-global/global";
 import favicon from "../images/john-lewis.svg";
 import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
@@ -305,7 +308,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 
   return (
     <>
-      <PageLayout gdata={_site}>
+     <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
         <BreadCrumbs
           name={regionNames.of(name)}
           address={address}
@@ -315,6 +318,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
         {/* <div className="location-dtl">
           <Banner name={regionNames.of(name)} c_bannerImage={bannerimage} />
         </div> */}
+ <HeaderBanner title={_site.c_bannerTitle} description={_site.c_bannerDescription} himage={_site.c_bannerImage.image.url} blabel={_site.c_bannerUrl.label} burl={_site.c_bannerUrl.link}/>
 
 
 
@@ -334,7 +338,9 @@ if (typeof entity.dm_directoryChildren != "undefined") {
           </div>
         </div>
 
-      </PageLayout>
+        <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
+ footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
+ footer5cta={_site.c_footer5Cta}/>
     </>
   );
 };
