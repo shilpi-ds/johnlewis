@@ -303,7 +303,7 @@ const City: Template<TemplateRenderProps> = ({
                 {/* <p className="text-center">Near by stores</p> */}
 
         <div className="flex justify-between items-center pt-3 ml-4">
-            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={entity.slug}
+            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={url}
                 data-ya-track={`${entity.name}`}
                 eventName={`${entity.name}`}
                 rel="noopener noreferrer">{entity.name}</Link></h5>
