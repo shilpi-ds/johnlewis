@@ -1,6 +1,7 @@
 import * as React from "react";
 import { breadcrumbhome, conversionDetailsDirection } from "../../../sites-global/global";
 import { regionNames } from "../../../sites-global/global";
+import Home from  "../../images/home-john.png";
 import { Link } from "@yext/pages/components";
 type data = {
   name: any;
@@ -89,9 +90,11 @@ const BreadCrumbs = (props: data) => {
              rel="noopener noreferrer"
              conversionDetails={conversionDetailsDirection}>
             {/* <div dangerouslySetInnerHTML={{__html: breadcrumbhome}}/> */}
+            <img className="h-9 pl-9 my-3" src={Home} alt=""/>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.83337 17.5L12.4167 2.5H14.1667L7.58337 17.5H5.83337Z" fill="#141414" />
             </svg>
+           
             </Link>
           </li>
           {/* <li>

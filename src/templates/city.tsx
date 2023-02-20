@@ -6,6 +6,9 @@ import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
 import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
+import GetDirection from "../commons/GetDirectionloc";
+//import OpenClose from "../commons/openClose"
+import OpenCloseStatus from "../commons/OpenCloseStatus";
 // import { stagingBaseUrl } from "../constants";
 // import bannerImage from "../images/banner.png"
 import "../index.css";
@@ -20,16 +23,20 @@ import {
   GetHeadConfig,
   HeadConfig,
 } from "@yext/pages";
+import loc3 from "../images/loc3.svg";
+import loc1 from "../images/loc1.svg";
+import loc2 from "../images/loc2.svg";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
 import Banner from "../components/locationDetail/banner";
 import { StaticData } from "../../sites-global/staticData";
-import { Addresssvg, favicon, mobilesvg, regionNames, stagingBaseurl } from "../../sites-global/global";
+import { Addresssvg, mobilesvg, regionNames, stagingBaseurl } from "../../sites-global/global";
 import { JsonLd } from "react-schemaorg";
 import Address from "../components/commons/Address";
 import PageLayout from "../components/layouts/PageLayout";
 //import Availability from "../components/locationDetail/Availability";
 import OpenClose from "../components/commons/openClose";
 import timesvg from "../images/loc3.svg";
+import favicon from "../images/john-lewis.svg";
 import { Link } from "@yext/pages/components";
 var currentUrl = "";
 export const config: TemplateConfig = {
@@ -285,64 +292,62 @@ const City: Template<TemplateRenderProps> = ({
     if (!entity.slug) {
       url = `/${entity.id}-${result}.html`;
     } else {
-      url = `/${entity.slug?.toString()}`;
+      url = `/${entity.slug?.toString()}.html`;
     }
 
 
 
     return (
 
-      <div className="nearby-card">
-        <div className="location-name-miles icon-row">
-        {/* <div className="icon"> <img className=" " src={mapimage} width="20" height="20"
-                      alt="" /></div> */}
-          <h2><Link className="inline-block notHighlight" href={url}
-           data-ya-track={`viewstore-${entity.name}`}
-           eventName={`viewstore-${entity.name}`}
-           rel="noopener noreferrer"
-          >{entity.name}</Link></h2>
-        </div>
-        <div className="icon-row">
-          <Address address={entity.address} />
-        </div>
-        {entity.mainPhone?
-        <div className="icon-row">
-           {/* <div className="icon">
-           <img className=" " src={Phonesvg} width="20" height="20"
-                        alt="" />
-                        </div> */}
-          <div className="content-col">
-            <a href={`tel:${entity.mainPhone}`}>{entity.mainPhone}</a>
-          </div>
-        </div>:''}
-       
-        <div className="icon-row">
-          <div className="content-col open-now-string">
-           
-            {typeof entity.hours?.reopenDate!="undefined"?
-            <h6>{StaticData.tempClosed}</h6>
-          :<OpenClose timezone={entity.timezone} hours={entity.hours}/>}
-           
-          </div>
-        </div>
-        <div className="icon-row content-col availability-col">
+      <div className="bg-white shadow-lg w-[21.875rem] box_shadow drop-shadow-md">
+                {/* <p className="text-center">Near by stores</p> */}
 
+        <div className="flex justify-between items-center pt-3 ml-4">
+            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={entity.slug}
+                data-ya-track={`${entity.name}`}
+                eventName={`${entity.name}`}
+                rel="noopener noreferrer">{entity.name}</Link></h5>
+                {/* {typeof location.distance != "undefined" ? <p className="pr-4 text-xs">{metersToMiles(location.distance)} miles</p>: ''} */}
+        </div>
+
+        <div className="flex mt-4 ml-4">
+            <img className="h-[25px]" src={loc1} alt=""/>
+            <div className="pl-4"><Address address={entity.address} /></div>
           
         </div>
 
+        <div className="flex mt-4 ml-4">
+            <img className="h-[25px]" src={loc2} alt=""/>
+            <p className="text-sm pl-4"> {entity.mainPhone}</p>
 
-
-        <div className="button-bx">
-          <Link className="btn" href={url}
-           data-ya-track={`viewstore-${entity.name}`}
-           eventName={`viewstore-${entity.name}`}
-           rel="noopener noreferrer"
-          >
-
-            {StaticData.StoreDetailbtn}</Link>
-          <GetDirectionloc buttonText={StaticData.getDirection} address={entity.address} latitude={entity?.yextDisplayCoordinate?.latitude} longitude={entity?.yextDisplayCoordinate?.longitude} />
         </div>
-      </div>
+        {entity.hours?
+        <div className="flex mt-4 ml-4">
+            <img className="h-[25px]" src={loc3} alt=""/>
+            <p className="text-sm pl-4"><OpenCloseStatus timezone={entity.timezone} hours={entity.hours} deliveryHours={entity.hours}/></p>
+        </div>
+        :<div className="closeddot notHighlight red-dot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="4" cy="4" r="4" fill="#ad1e1f"/>
+    </svg>
+           <div className="hours-info text-lg font-second-main-font closeddot"> 
+           Closed
+           </div>
+           </div>
+    }
+        <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirection buttonText="Shop Directions" address={entity.address} latitude={entity.displayCoordinate ? entity.displayCoordinate.latitude : entity.yextDisplayCoordinate.latitude} longitude={entity.displayCoordinate ? entity.displayCoordinate.longitude : entity.yextDisplayCoordinate.longitude} />
+            </button>
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={entity.slug+".html"}
+                data-ya-track={`viewstore-${entity.name}`}
+                eventName={`viewstore-${entity.name}`}
+                rel="noopener noreferrer">
+                 {/* <div dangerouslySetInnerHTML={{__html: View_Store}}/> */}
+                 View Details</Link></button>
+        </div>
+    </div>
+
+    
   );
   });
  
