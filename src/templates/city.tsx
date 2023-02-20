@@ -269,7 +269,7 @@ const City: Template<TemplateRenderProps> = ({
   });
 
   const childrenDivs = dm_directoryChildren?.map((entity: any) => {
-    console.log(entity)
+   // console.log(entity)
     var origin: any = null;
     if (entity.address.city) {
       origin = entity.address.city;
@@ -290,9 +290,9 @@ const City: Template<TemplateRenderProps> = ({
     var string: any = name?.toString();;
     let result: any = string?.replaceAll(" ", "-");
     if (!entity.slug) {
-      url = `${entity.id}-${result}.html`;
+      url = `/${entity.id}-${result}.html`;
     } else {
-      url = `${entity.slug?.toString()}.html`;
+      url = `/${entity.slug?.toString()}.html`;
     }
 
 
@@ -303,7 +303,7 @@ const City: Template<TemplateRenderProps> = ({
                 {/* <p className="text-center">Near by stores</p> */}
 
         <div className="flex justify-between items-center pt-3 ml-4">
-            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={url}
+            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={document.slug+".html"}
                 data-ya-track={`${entity.name}`}
                 eventName={`${entity.name}`}
                 rel="noopener noreferrer">{entity.name}</Link></h5>
@@ -338,7 +338,7 @@ const City: Template<TemplateRenderProps> = ({
         <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
             <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirectionloc buttonText="Shop Directions" address={entity.address} latitude={entity.displayCoordinate ? entity.displayCoordinate.latitude : entity.yextDisplayCoordinate.latitude} longitude={entity.displayCoordinate ? entity.displayCoordinate.longitude : entity.yextDisplayCoordinate.longitude} />
             </button>
-            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={entity.slug+".html"}
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={document.slug+".html"}
                 data-ya-track={`viewstore-${entity.name}`}
                 eventName={`viewstore-${entity.name}`}
                 rel="noopener noreferrer">
