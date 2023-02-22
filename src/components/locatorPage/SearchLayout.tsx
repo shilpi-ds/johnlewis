@@ -160,14 +160,14 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
   const handleInputValue = () => {
     setInputValue('');
   }
-  // const handleSetUserShareLocation = (value:any, userShareStatus:boolean) => {
-  //   console.log(value,center_latitude,center_longitude,"value");
-  //   setInputValue(value);
-  //   if(userShareStatus){
-  //     setCenterLatitude(center_latitude);
-  //     setCenterLongitude(center_longitude);
-  //   }
-  // }
+   const handleSetUserShareLocation = (value:any, userShareStatus:boolean) => {
+     console.log(value,center_latitude,center_longitude,"value");
+     setInputValue(value);
+     if(userShareStatus){
+       setCenterLatitude(center_latitude);
+       setCenterLongitude(center_longitude);
+    }
+   }
 
 
     function getCoordinates(address: String) {
@@ -293,15 +293,15 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
                   fieldApiName: "address.region",
 
                   },
-                  // {
-                  //   entityType: "location",
-                  //   fieldApiName: "address.countryCode",
+                  //  {
+                  //    entityType: "location",
+                  //    fieldApiName: "address.countryCode",
 
                   // },
                 ]}
                 
                 handleInputValue={handleInputValue}  
-                //handleSetUserShareLocation={handleSetUserShareLocation}
+                handleSetUserShareLocation={handleSetUserShareLocation}
             />
 
             <button

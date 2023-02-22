@@ -101,7 +101,7 @@ body.menu-opened{ @apply overflow-hidden lg:overflow-auto;}
 /* banner sec */
 .banner-sec{ @apply bg-gray-light py-16 mt-4}
 .banner-sec h1{ @apply text-3xl text-center uppercase }
-.locator-main{ @apply  mt-10  align-bottom w-full max-w-[87.5rem] mx-auto px-0 md:px-4 lg:px-6 xl:px-0}
+.locator-main{ @apply  mt-10  align-bottom w-full max-w-[110.5rem] mx-auto px-0 md:px-4 lg:px-6 xl:px-0}
 .left-listing{ @apply w-full md:w-[30rem] lg:w-[33.6875rem] float-left }
 .map-section{@apply w-full md:w-[calc(100%_-_30rem)] lg:w-[calc(100%_-_33.6875rem)]  md:pl-8 float-right}
 .locator-map-block{  @apply w-full  h-[80vh] md:h-screen top-0 order-1 lg:order-none z-[99];}
@@ -908,8 +908,8 @@ margin-top: 200px;
   display: none;
 }
 .currentDay{
-  background-color: #000;
-    color: #fff;
+  background-color: #f1f6fa;
+    color: #000;
 }
 .location-near{
 
@@ -925,4 +925,10 @@ margin-top: 200px;
 .map-sec
 {
   margin-left: 15px;
+}
+.socialfoot  {
+  display: flex;
+}
+.socialfoot li {
+  padding-right: 10px;
 }

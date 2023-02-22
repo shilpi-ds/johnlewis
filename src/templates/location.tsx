@@ -506,7 +506,7 @@ breadcrumbScheme.push({
     <>
 {/* <PageLayout gdata={_site}> */}
      
-<Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus}/>
+<Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
 <JsonLd<Store>
         item={{
           "@context": "https://schema.org",
@@ -575,9 +575,10 @@ breadcrumbScheme.push({
 
                     {/* <p>Monday</p>
                     <p className="text-sm">12:00 - 17:00</p> */}
+                    {/* <div className="store-time text-5xl text-center font-semibold mb-4"> */}
                     <Contact address={address} 
             hours={hours}  additionalHoursText={additionalHoursText} ></Contact> 
-               
+               {/* </div> */}
 
            
           {
@@ -622,12 +623,11 @@ breadcrumbScheme.push({
 
 <StoreGuide title={c_storeGuideHeading} detail={c_storeGuideDetails}/>
 
-        {c_relatedFaqs ?
-      <div className="faq-content">
-        <div className="faq-title">{c_faqTitle}</div>
-        <div className="faqs"><section className="faq-container">{c_relatedFaqs && <Accordion content={c_relatedFaqs}/> }</section></div>
-        </div>
-        :''}
+       
+
+     {c_relatedFaqs && <Accordion content={c_relatedFaqs}/> }
+      
+    
              {yextDisplayCoordinate || cityCoordinate || displayCoordinate ?
          
 
@@ -648,7 +648,7 @@ breadcrumbScheme.push({
  
           <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
  footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
- footer5cta={_site.c_footer5Cta}/>
+ footer5cta={_site.c_footer5Cta} social={_site.c_socialFooter}/>
           {/* </PageLayout> */}
           
     </>

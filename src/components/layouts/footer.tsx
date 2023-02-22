@@ -18,11 +18,12 @@ type props = {
   footer4Description?:any;
   footer5img?:any;
   footer5cta?:any;
+  social?:any;
   };
   
 
   const Footer = (props: any) => {
-   const {footer1,footer1title,footer1description,footer2,footer3title,footer3cta,footer3barcta,footer3barimg,footer4links,footer4title,footer4Description,footer5img,footer5cta} = props;
+   const {footer1,footer1title,footer1description,footer2,footer3title,footer3cta,footer3barcta,footer3barimg,footer4links,footer4title,footer4Description,footer5img,footer5cta,social} = props;
 console.log(props);
    return (
       <>
@@ -98,7 +99,16 @@ console.log(props);
                 </div>
             
             <div className="socialmedia flex gap-8 right-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ul className="socialfoot">
+            {social?.map((sociallink: any) => {
+                    return (
+                      <>
+                             <li><a href={sociallink.socialLink}><img src={sociallink.socialImage.url} width="24" height="24"/></a></li>
+                      </>
+                    );
+                })} 
+            </ul>
+                {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
                         fill="white" />
@@ -140,7 +150,7 @@ console.log(props);
                     <path
                         d="M16.6 5.82C15.9164 5.03962 15.5397 4.03743 15.54 3H12.45V15.4C12.4262 16.071 12.1429 16.7066 11.6598 17.1729C11.1767 17.6393 10.5315 17.8999 9.86 17.9C8.44 17.9 7.26 16.74 7.26 15.3C7.26 13.58 8.92 12.29 10.63 12.82V9.66C7.18 9.2 4.16 11.88 4.16 15.3C4.16 18.63 6.92 21 9.85 21C12.99 21 15.54 18.45 15.54 15.3V9.01C16.793 9.90985 18.2974 10.3926 19.84 10.39V7.3C19.84 7.3 17.96 7.39 16.6 5.82Z"
                         fill="#102B2B" />
-                </svg>
+                </svg> */}
 
             </div>
         </div>

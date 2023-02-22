@@ -8,6 +8,7 @@ type props = {
 
 const Header = (props: any) => {
   const {logo, links ,topmenu,free} = props;
+  console.log(props);
   return (
     <header>
         <div className="bg-[#102B2B] text-white text-sm flex justify-between items-center border-b-8 border-[#099E3D]">
@@ -24,7 +25,7 @@ const Header = (props: any) => {
                     );
                   })}
             </ul>
-            {free.link &&
+           {free.link &&
             <div className="flex mr-24 gap-3">
                 <span><a href={free.link}>{free.label}</a></span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

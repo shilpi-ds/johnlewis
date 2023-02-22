@@ -340,7 +340,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 
         <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
  footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
- footer5cta={_site.c_footer5Cta}/>
+ footer5cta={_site.c_footer5Cta} social={_site.c_socialFooter}/>
     </>
   );
 };

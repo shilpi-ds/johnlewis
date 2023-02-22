@@ -18,7 +18,7 @@ type Props = {
     gdata,
     //global,
     children,
-  }: Props) => { console.log(gdata);
+  }: Props) => { //console.log(gdata);
     return (
         <>
         
@@ -37,7 +37,7 @@ type Props = {
                 {children}
       <Footer footer1={gdata.c_footer1Cta} footer1title={gdata.c_footer1Title} footer1description={gdata.c_footer1Description} footer2={gdata.c_footer2} footer3title={gdata.c_footer3Title} footer3cta={gdata.c_footer3Cta}
  footer3barcta={gdata.c_footer3BarcodeCta} footer3barimg={gdata.c_footer3Barcode} footer4links={gdata.c_footer4Links} footer4title={gdata.c_footer4Title} footer4Description={gdata.c_footer4Description} footer5img={gdata.c_footer5Image}
- footer5cta={gdata.c_footer5Cta}/>
+ footer5cta={gdata.c_footer5Cta} social={gdata.c_socialFooter}/>
          
          </>
     );
