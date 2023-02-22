@@ -25,7 +25,7 @@ const Accordion = ({ content }) => {
       <>
 
 
-        <div id={index} className={`flex items-center justify-between pl-4 py-6 bg-[#F1F6FA] drop-shadow-[0_0px_1px_rgba(0,0,0,0.15)] bg-white ${section==index?isActive:''}`} onClick={(e) => {handleClick(e)}} style={{ cursor: "pointer" }}>
+        <div id={index} className={`flex items-center justify-between pl-4 py-6 drop-shadow-[0_0px_1px_rgba(0,0,0,0.15)] bg-white ${section==index?isActive:''}`} onClick={(e) => {handleClick(e)}} style={{ cursor: "pointer" }}>
          <div  className="flex items-center gap-[16px]" >
           {/* <div className="faq-head flex items-center gap-4 pr-12" onClick={showAnswer(index)} style={{ cursor: "pointer" }}> */}
             <span>
