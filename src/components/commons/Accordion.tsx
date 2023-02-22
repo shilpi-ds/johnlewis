@@ -3,22 +3,14 @@ import { useState } from 'react';
 import $ from "jquery";
 
 const Accordion = ({ content }) => {
-  console.log(content);
+  //console.log(content);
   //const [toggle, setToggle] = useState(!null);
 
   const [section, setSection] = useState(0);
   const [isActive, setIsActive] = useState('section-chat');
 
-  const handleClick = (index) => {
-    // 👇️ toggle isActive state on click
-    setSection(index);
-
-    //setIsActive(!isActive);
-    if (isActive === 'section-chat') {
-      setIsActive('section-chat active');
-  } else {
-    setIsActive('section-chat');
-  }
+  const handleClick = (e:any) => {
+    setSection(e.target.id);
   };
 
 //console.log(content);
@@ -28,28 +20,13 @@ const Accordion = ({ content }) => {
      <div className=" w-[640px] h-[470px] relative left-12">
             <h1 className="text-[#141414] text-[40px]">frequently asked questions</h1>
             <div className="absolute w-[640px]"> 
-   { content.map((item:any,index) => {
+   { content.map((item:any,index:any) => {
       return(
       <>
 
-        {/*   // console.log(item.question);
-          //      return(
-          //       <>
-            
-            
-          // <div className="card" key={index}>
-          // <div className="card-header" onClick={()=>handleToggle(index)} style={{cursor:"pointer"}}>
-          //  <h2 className="faq-page">{item.question}<span className="faq-sign">{(index===toggle)?'-':'+'}</span></h2></div>
-          //                     {(index===toggle)?<div className="faq-body"><p>{item.answer}</p></div>:''}
-                          
-          //                 </div>
-          //                 <hr className="hr-line"/>
-                        
-          //       </>
-          //      ); */}
-{isActive}
-        <div className="flex items-center justify-between pl-4 py-6 bg-[#F1F6FA] drop-shadow-[0_0px_1px_rgba(0,0,0,0.15)]">
-         <div className={isActive} onClick={() => {handleClick(index)}} style={{ cursor: "pointer" }}>
+
+        <div id={index} className={`flex items-center justify-between pl-4 py-6 bg-[#F1F6FA] drop-shadow-[0_0px_1px_rgba(0,0,0,0.15)] bg-white ${section==index?isActive:''}`} onClick={(e) => {handleClick(e)}} style={{ cursor: "pointer" }}>
+         <div  className="flex items-center gap-[16px]" >
           {/* <div className="faq-head flex items-center gap-4 pr-12" onClick={showAnswer(index)} style={{ cursor: "pointer" }}> */}
             <span>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +34,7 @@ const Accordion = ({ content }) => {
               </svg>
 
             </span>
-            <p>{item.question}</p>
+            <p id={index}>{item.question}</p>
           </div>
           <span className="right-0 mr-8">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

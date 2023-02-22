@@ -20,8 +20,9 @@ const PhotoSlider = (props: any) => {
       width : '100%',
       gap   : '1rem',
       type: "loop",
-      perPage: 4,
-      perMove: 1
+      perPage: 5,
+      perMove : 1,
+      focus  : 'center',
     }}>
       
           {photos}
@@ -31,3 +32,10 @@ const PhotoSlider = (props: any) => {
 };
 
 export default PhotoSlider;
+
+new Splide( '.splide', {
+  type   : 'loop',
+  perPage: 5,
+  perMove : 1,
+ focus  : 'center',
+} );
