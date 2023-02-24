@@ -30,10 +30,10 @@ const Contact = (props: any) => {
       
 
       {hours && typeof hours.monday != "undefined" ? (
-        <div class="Store_time min-w-[20.813rem] bg-white drop-shadow-md ml-4">
-          <div class="flex items-center pt-4 ml-6 justify-between">
-                <h5 class="underline underline-offset-8 font-medium text-lg">Store Time</h5>
-                <p class="text-xs pr-6">{hours.holidayHours && typeof hours.reopenDate == "undefined" ? (
+        <div className="Store_time min-w-[20.813rem] bg-white drop-shadow-md ml-4">
+          <div className="flex items-center pt-4 ml-6 justify-between">
+                <h5 className="underline underline-offset-8 font-medium text-lg">Store Time</h5>
+                <p className="text-xs pr-6">{hours.holidayHours && typeof hours.reopenDate == "undefined" ? (
                 <>
                   <Model
                     name={StaticData.Holdiay}

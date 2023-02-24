@@ -5,7 +5,7 @@ import getDirectionUrl from "../commons/GetDirection";
 import OpenCloseStatus from "../../components/commons/OpenCloseStatus";
 import { Link, useAnalytics } from "@yext/pages/components";
 import { svgIcons} from "../../images/svg-icons/svgIcon";
-import Holidayhour from "./holidayHours";
+import Holidayhour from "./Holdayhours";
 import Address from "../commons/Address";
 import Phone from "../commons/phone";
 import { useEffect, useRef, useState } from "react";

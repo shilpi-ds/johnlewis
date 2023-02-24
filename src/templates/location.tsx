@@ -553,14 +553,7 @@ breadcrumbScheme.push({
           <h5 className="underline underline-offset-8 font-medium text-lg ml-6 pt-4">{name}</h5>
           <LocDetails address={address.line1} loc1={loc1} loc2={loc2} loc3={loc3} phone={mainPhone} name={name} hours={hours} timezone={timezone} city={address.city} postcode={address.postalCode} addline1={address.line1} addline2={address.line2}/>
           
-        {/* <ul className="">
-          <li className="button-bx direction-button">
-          {displayCoordinate ?
-          <GetDirection buttonText="Shop Directions" address={address}  latitude={displayCoordinate?.latitude} longitude={displayCoordinate?.longitude} />
-          : <GetDirection buttonText="Shop Directions" address={address} latitude={yextDisplayCoordinate?.latitude} longitude={yextDisplayCoordinate?.longitude} />
-        }
-          </li>
-        </ul>  */}
+     
 
         <div className="button flex gap-1 justify-center mt-5 mb-10 ">
         
@@ -571,14 +564,19 @@ breadcrumbScheme.push({
                
             </div>
             </div>
-           
-
-                    {/* <p>Monday</p>
-                    <p className="text-sm">12:00 - 17:00</p> */}
-                    {/* <div className="store-time text-5xl text-center font-semibold mb-4"> */}
-                    <Contact address={address} 
+            
+            {/* <LocationInformation
+            prop={hours}
+            coords={yextDisplayCoordinate}
+            address={address}
+            phone={mainPhone}
+            timezone={timezone}
+            hours={hours}
+            additionalHoursText={additionalHoursText}
+          /> */}
+                    <Contact address={address} timezone={timezone} 
             hours={hours}  additionalHoursText={additionalHoursText} ></Contact> 
-               {/* </div> */}
+              
 
            
           {

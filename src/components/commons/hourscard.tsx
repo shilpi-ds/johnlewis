@@ -234,29 +234,54 @@ const DayRow = (props: DayRow) => {
       holidayopenintervals.push(myDataAccordintToMe[key]);
     }
   }
-  return (
-    <tr className={isToday ? "currentDay" : ""}>
-      {Status ? (
-        
-        <td className="capitalize text-left pl-1 pr-4 dayName">
-           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div className="flex items-center p-2 pl-6 gap-2">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4.66667 9.33333L1.33333 6L2.27333 5.05333L4.66667 7.44667L9.72667 2.38667L10.6667 3.33333M10.6667 0H1.33333C0.593333 0 0 0.593333 0 1.33333V10.6667C0 11.0203 0.140476 11.3594 0.390524 11.6095C0.640573 11.8595 0.979711 12 1.33333 12H10.6667C11.0203 12 11.3594 11.8595 11.6095 11.6095C11.8595 11.3594 12 11.0203 12 10.6667V1.33333C12 0.979711 11.8595 0.640573 11.6095 0.390524C11.3594 0.140476 11.0203 0 10.6667 0Z"
                             fill="#141414" />
                     </svg>
-          <span>
-            <b className="checked"></b>
-            {dayName} <b className="block text-sm font-normal">(Holiday)</b>
-          </span>
+                    <p>Monday</p>
+                </div>
+
+
+  return (
+    <>
+    <tr className={isToday ? "currentDay" : ""}>
+      {Status ? (
+        
+        <td className="capitalize text-left pl-1 pr-4 dayName">
+           {/* <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.66667 9.33333L1.33333 6L2.27333 5.05333L4.66667 7.44667L9.72667 2.38667L10.6667 3.33333M10.6667 0H1.33333C0.593333 0 0 0.593333 0 1.33333V10.6667C0 11.0203 0.140476 11.3594 0.390524 11.6095C0.640573 11.8595 0.979711 12 1.33333 12H10.6667C11.0203 12 11.3594 11.8595 11.6095 11.6095C11.8595 11.3594 12 11.0203 12 10.6667V1.33333C12 0.979711 11.8595 0.640573 11.6095 0.390524C11.3594 0.140476 11.0203 0 10.6667 0Z"
+                            fill="#141414" />
+                    </svg> */}
+           <div className="flex items-center p-2 pl-6 gap-2">
+           {isToday &&
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.66667 9.33333L1.33333 6L2.27333 5.05333L4.66667 7.44667L9.72667 2.38667L10.6667 3.33333M10.6667 0H1.33333C0.593333 0 0 0.593333 0 1.33333V10.6667C0 11.0203 0.140476 11.3594 0.390524 11.6095C0.640573 11.8595 0.979711 12 1.33333 12H10.6667C11.0203 12 11.3594 11.8595 11.6095 11.6095C11.8595 11.3594 12 11.0203 12 10.6667V1.33333C12 0.979711 11.8595 0.640573 11.6095 0.390524C11.3594 0.140476 11.0203 0 10.6667 0Z"
+                            fill="#141414" />
+                    </svg>
+}
+            <p>{dayName}</p> <b className="block text-sm font-normal">(Holiday)</b>
+          </div>
         </td>
       ) : (
         <td className="capitalize text-left pl-1 pr-4 dayName">
-          <span>
-            <b className="checked"></b>
-            {dayName}
-          </span>
+          <div className="flex items-center p-2 pl-6 gap-2">
+                   {isToday &&
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.66667 9.33333L1.33333 6L2.27333 5.05333L4.66667 7.44667L9.72667 2.38667L10.6667 3.33333M10.6667 0H1.33333C0.593333 0 0 0.593333 0 1.33333V10.6667C0 11.0203 0.140476 11.3594 0.390524 11.6095C0.640573 11.8595 0.979711 12 1.33333 12H10.6667C11.0203 12 11.3594 11.8595 11.6095 11.6095C11.8595 11.3594 12 11.0203 12 10.6667V1.33333C12 0.979711 11.8595 0.640573 11.6095 0.390524C11.3594 0.140476 11.0203 0 10.6667 0Z"
+                            fill="#141414" />
+                    </svg>
+}
+                    <p>{dayName}</p>
+                </div>
         </td>
       )}
+
+
 
       {!day.isClosed && (
         <td className="dayTime pr-1">
@@ -274,15 +299,13 @@ const DayRow = (props: DayRow) => {
                         openint?.openIntervals &&
                         openint?.openIntervals?.map((res: any) => {
                           return (
-                            <div className="time-hours">
-                              <span className="time-open-hours">
-                                {res?.start}
-                              </span>
-                              <span className="dash">-</span>
-                              <span className="time-close-hours">
-                                {res?.end}
-                              </span>
-                            </div>
+                            <div className="">
+                            <p className="text-sm flex items-center gap-5">{res?.start} <svg width="10" height="1" viewBox="0 0 10 1"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line y1="0.5" x2="10" y2="0.5" stroke="#141414" />
+                                </svg>
+                                {res?.end}</p>
+                        </div>
                           );
                         })
                       )}
@@ -292,11 +315,13 @@ const DayRow = (props: DayRow) => {
               })
             : day?.openIntervals?.map((res: any, index: Number) => {
                 return (
-                  <span className="time-hours">
-                    <span className="time-open-hours">{res?.start}</span>
-                    <span className="dash">-</span>
-                    <span className="time-close-hours">{res?.end}</span>
-                  </span>
+                  <div className="">
+                            <p className="text-sm flex items-center gap-5">{res?.start} <svg width="10" height="1" viewBox="0 0 10 1"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line y1="0.5" x2="10" y2="0.5" stroke="#141414" />
+                                </svg>
+                                {res?.end}</p>
+                        </div>
                 );
               })}
         </td>
@@ -324,7 +349,10 @@ const DayRow = (props: DayRow) => {
           <span className="time-hours">Closed</span>
         </td>
       )}
+   
     </tr>
+    {/* <div class="border-b opacity-40 w-[300px] items-center m-auto"></div> */}
+    </> 
   );
 };
 
@@ -359,7 +387,7 @@ const Hours = (props: Hours) => {
   return (
     <div>
       {titleString}
-      <table>
+      <table  className="w-full">
         <thead className="sr-only">
           <tr>
             <th>Day of the Week</th>

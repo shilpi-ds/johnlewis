@@ -41,7 +41,7 @@ function Model(props: any) {
   var day;
   return(
     <>
-     <a onClick={openModal} className="text-link" id="holidaybtn" href="javascript:void(0);">
+      <a onClick={openModal} className="text-link" id="holidaybtn" href="javascript:void(0);">
         {props.name}
       </a>
   {props.holidayHours.map((res:any,index:Number)=>{
@@ -70,9 +70,7 @@ return a.map(format).join(s);
   return (
     <>
      
-      {/* <a onClick={openModal} className="text-link" id="holidaybtn" href="javascript:void(0);">
-        {props.name}
-      </a> */}
+    
 
       <Modal
         isOpen={modalIsOpen}
