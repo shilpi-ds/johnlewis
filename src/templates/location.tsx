@@ -283,7 +283,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 };
 
 
-type ExternalApiData = TemplateProps & { externalApiData: nearByLocation };
+type ExternalApiData = TemplateProps & { fexternalApiData: nearByLocation };
  export const transformProps: TransformProps<ExternalApiData> = async (
    data: any
  ) => {
@@ -594,7 +594,7 @@ breadcrumbScheme.push({
  </div>
  <div className="flex mt-[60px] items-center gap-12 justify-center">
         <div className="Content max-w-[40.875rem]">
-            <h1 className="text-black text-[40px]">{c_title}</h1>
+            <h1 className=" text-[40px]">{c_title}</h1>
             <p className="pt-7 pb-[50px]">{description}
             </p>
             {c_seoCta.link && c_seoCta.label?
@@ -602,15 +602,19 @@ breadcrumbScheme.push({
             : ''}
         </div>
 
-        <div className="images flex relative">
-            <img className="max-w-[34.663rem]" src={c_backImage.url} alt=""/> 
-            <img className="max-w-[34.663rem] absolute top-10 right-[34px]" src={c_mainImage.url} alt=""/>
+        <div class="images flex relative">
+            <div class=""><img class="w-[34.662rem] h-[25.044rem] rounded-2xl" src={c_backImage.url} alt=""/></div>
+            <div class="" ><img class="w-[34.662rem] h-[25.044rem] object-cover absolute top-10 right-[34px] rounded-xl" src={c_mainImage.url} alt=""/></div>
         </div>
 
     </div>
+
+   
+   
+
  {photoGallery ?
-              <div className="featured">
-              <h2>{c_sliderTitle}</h2>
+              <div className="featured mb-[60px] h-[41.875rem] bg-[#f1f6fa]">
+              <h2 className="pt-9 pb-[3.125rem]">{c_sliderTitle}</h2>
               <div className="photo-slider">{photoGallery && <PhotoSlider photoGallery={photoGallery}/> }</div>
       </div>
       : ''}
@@ -620,14 +624,14 @@ breadcrumbScheme.push({
 {c_offers &&
 <OfferSlider offer={c_offers}/>
 }
-
+{c_storeGuideDetails &&
 <StoreGuide title={c_storeGuideHeading} detail={c_storeGuideDetails}/>
-
+}
        
 
-     {c_relatedFaqs && <Accordion content={c_relatedFaqs}/> }
+     {c_relatedFaqs && <Accordion content={c_relatedFaqs} title={c_faqTitle}/> }
       
-    
+
              {yextDisplayCoordinate || cityCoordinate || displayCoordinate ?
          
 

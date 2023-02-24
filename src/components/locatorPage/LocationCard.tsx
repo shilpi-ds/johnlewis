@@ -163,7 +163,20 @@ function opentime(e: any) {
                 <OpenCloseStatus
                 timezone={timezone ? timezone : defaultTimeZone}
                 hours={hours}
-        />
+        /><svg
+        className="mt-2"
+        xmlns="http://www.w3.org/2000/svg"
+        width="9.585"
+        height="4.793"
+        viewBox="0 0 9.585 4.793"
+      >
+        <path
+          id="hrd-drop"
+          d="M9,13.5l4.793,4.793L18.585,13.5Z"
+          transform="translate(-9 -13.5)"
+          fill="#00363f"
+        ></path>
+      </svg>
           </Link>}
 
                 <div className={timeStatus + " daylist"}>

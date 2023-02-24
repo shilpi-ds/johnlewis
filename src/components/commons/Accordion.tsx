@@ -2,8 +2,8 @@ import * as React from "react";
 import { useState } from 'react';
 import $ from "jquery";
 
-const Accordion = ({ content }) => {
-  //console.log(content);
+const Accordion = ({ content,title }) => {
+  //console.log(title);
   //const [toggle, setToggle] = useState(!null);
 
   const [section, setSection] = useState(0);
@@ -18,8 +18,8 @@ const Accordion = ({ content }) => {
     <>
     <div className="faq's mt-[30px] flex justify-center mb-[3.75rem]">
      <div className=" w-[640px] h-[470px] relative left-12">
-            <h1 className="text-[#141414] text-[40px]">frequently asked questions</h1>
-            <div className="absolute w-[640px]"> 
+            <h2 className="text-[#141414] text-[40px] relative top-[0.625rem">{title}</h2>
+            <div className="absolute w-[640px] flex flex-col justify-center mt-[2rem] top-2/4 -translate-y-2/4"> 
    { content.map((item:any,index:any) => {
       return(
       <>
