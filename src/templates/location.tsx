@@ -68,8 +68,6 @@ export const config: TemplateConfig = {
       "c_sliderTitle",
       "c_relatedFaqs.question",
       "c_relatedFaqs.answer",
-      //"c_relatedFaqs.question",
-      //"c_relatedFaqs.answer",
       "c_johnLogo",
       "c_faqTitle",
       "c_brandTitle",
@@ -120,7 +118,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   //   url += `${document.slug.toString()}.html`;
   // }
 
-  var url=document.slug?document.slug:document.id;
+  var url=document.slug?document.slug.toString():document.id.toString();
   return url+".html";
 };
 /**
@@ -138,9 +136,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 }): HeadConfig => {
   let url = "";
   if (!document.slug) {
-    let slugString = document.id + " " + document.name;
-    let slug = slugify(slugString);
-    url = `${slug}+.html`;
+    //let slugString = document.id + " " + document.name;
+   // let slug = slugify(slugString);
+    url = `${document.id.toString()}+.html`;
   } else {
     url = `${document.slug.toString()}+.html`;
   }

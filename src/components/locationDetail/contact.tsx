@@ -22,9 +22,10 @@ const Contact = (props: any) => {
     c_specific_day,
     additionalHoursText,
     yextDisplayCoordinate,
-    c_storeInfoHeading,
+    //c_storeInfoHeading,
     c_getDirectionsCTAText
   } = props;
+  console.log(hours.holidayHours);
   return (
     <>
       
@@ -33,7 +34,8 @@ const Contact = (props: any) => {
         <div className="Store_time min-w-[20.813rem] bg-white drop-shadow-md ml-4">
           <div className="flex items-center pt-4 ml-6 justify-between">
                 <h5 className="underline underline-offset-8 font-medium text-lg">Store Time</h5>
-                <p className="text-xs pr-6">{hours.holidayHours && typeof hours.reopenDate == "undefined" ? (
+                <p className="text-xs pr-6">
+                  {hours.holidayHours && typeof hours.reopenDate == "undefined" ? (
                 <>
                   <Model
                     name={StaticData.Holdiay}
@@ -53,7 +55,7 @@ const Contact = (props: any) => {
                   
                   additionalHoursText={additionalHoursText}
                   hours={hours}
-                  c_specific_day={c_specific_day}
+                  //c_specific_day={c_specific_day}
                 />
               )}
             </div>
