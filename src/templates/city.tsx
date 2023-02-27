@@ -288,7 +288,7 @@ const City: Template<TemplateRenderProps> = ({
     var initialrcity: any = city?.toString();
     var finalcity: any = initialrcity?.replaceAll(" ", "-");
     var string: any = name?.toString();;
-    let result: any = string;
+    let result: any = string?.charAt(0).toUpperCase() + string.slice(1);
     if (!entity.slug) {
       url = `/${entity.id} ${result}.html`;
     } else {
