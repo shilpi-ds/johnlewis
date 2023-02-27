@@ -62,7 +62,7 @@ import { useEffect } from "react";
                     </>
                   );
                 })}</>}
-                   {props.c_specific_day&&props.c_specific_day.map((specificDay:any)=>{
+                   {/* {props.c_specific_day&&props.c_specific_day.map((specificDay:any)=>{
                         return(
                           <>
                           <div>
@@ -75,7 +75,7 @@ import { useEffect } from "react";
                         </div>
                           </>
                         )
-                      })}
+                      })} */}
               </div>
            )
           }

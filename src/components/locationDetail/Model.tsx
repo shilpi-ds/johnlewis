@@ -96,7 +96,7 @@ return a.map(format).join(s);
 
               <div>Day</div>
               <div> Opening Hours</div>
-              <div> Specific Day</div>
+              {/* <div> Specific Day</div> */}
             </div>
             <Holidayhours hours={props.holidayHours} c_specific_day={props.c_specific_day} />
           </>
