@@ -287,15 +287,16 @@ const City: Template<TemplateRenderProps> = ({
     var city: any = entity.address.city?.toLowerCase();
     var initialrcity: any = city?.toString();
     var finalcity: any = initialrcity?.replaceAll(" ", "-");
+    
     var string: any = name?.toString();;
-    let result: any = string?.charAt(0).toUpperCase() + string.slice(1);
+    let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
     if (!entity.slug) {
       url = `/${entity.id} ${result}.html`;
     } else {
       url = `/${entity.slug?.toString()}.html`;
     }
 
-
+    
 
     return (
 
