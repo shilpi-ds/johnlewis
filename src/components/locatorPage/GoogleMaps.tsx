@@ -668,15 +668,14 @@ function UnwrappedGoogleMaps({
 
   /** Function InfowindowContents returns Html*/
   function InfowindowContents(i: Number, result: any): void {    
-    // var url = "";
-    // if (!result.rawData.slug) {
-    //   let slugString = result?.id + " " + result?.name;
-    //   let slug = slugify(slugString);
-    //   url = `${slug}.html`;
-    // } else {
-    //   url = `${result.rawData.slug.toString()}.html`;
-    // }
-    const url=`${result.rawData.slug?result.rawData.slug.toString():result.rawData.id.toString()}.html`;
+    var url = "";
+    if (!result.rawData.slug) {
+      let slugString = result?.id + " " + result?.name;
+      //let slug = slugify(slugString);
+      url = `${slugString}.html`;
+    } else {
+      url = `${result.rawData.slug.toString()}.html`;
+    }
 
     const MarkerContent = (
       <div className="bg-white shadow-lg w-[21.875rem]">

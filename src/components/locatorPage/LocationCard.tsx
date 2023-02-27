@@ -113,8 +113,7 @@ function opentime(e: any) {
 //  } else {
 //    url= `/${result.rawData.slug.toString()}.html`;
 //  }
-const urlloc=result.rawData.slug?result.rawData.slug.toString():result.rawData.id.toString();
-  //return url+".html";
+var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+ " " + result.rawData.name);
   
   return (
     <div className={`result-list-inner-${result.index} result onhighLight bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5"`}>

@@ -65,7 +65,7 @@ export default function Nearby(props: any) {
           // } else {
           //   url = `/${location.data.slug.toString()}.html`;
           // }
-      
+          var urlloc=location.data.slug?location.data.slug.toString():(location.data.id+ " " + location.data.name);
           if (index > 0) {
             return (
               <>
@@ -74,7 +74,7 @@ export default function Nearby(props: any) {
                 {/* <p className="text-center">Near by stores</p> */}
 
         <div className="flex justify-between items-center pt-3 ml-4">
-            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={location.data.slug}
+            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={urlloc+".html"}
                 data-ya-track={`${location.data.name}`}
                 eventName={`${location.data.name}`}
                 rel="noopener noreferrer">{location.data.name}</Link></h5>
@@ -109,7 +109,7 @@ export default function Nearby(props: any) {
         <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
             <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Shop Directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} />
             </button>
-            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={location.data.slug+".html"}
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={urlloc+".html"}
                 data-ya-track={`viewstore-${location.data.name}`}
                 eventName={`viewstore-${location.data.name}`}
                 rel="noopener noreferrer">
