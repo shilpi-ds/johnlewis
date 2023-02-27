@@ -385,7 +385,7 @@ const Hours = (props: Hours) => {
   );
 
   return (
-    <div>
+    <div className="container max-w-[18.75rem] mx-auto">
       {titleString}
       <table  className="w-full">
         <thead className="sr-only">

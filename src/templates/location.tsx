@@ -234,11 +234,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           property: "og:image",
-          content: `${favicon
-            //document.document.c_johnLogo.image.url
-          }`,
-        },
+          content:`${document.c_johnLogo ? document.c_johnLogo.image.url : "https://a.mktgcdn.com/p-sandbox/vmLX9HZXAYj_-h8v_XTQ8kI_JH7RDzALu62-n-zEWvw/356x68.png"}`,
       },
+    },
       //twitter tag
       {
         type: "meta",
@@ -272,10 +270,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:image",
-          content: `${favicon
-            // document.c_johnLogo.image.url
-              
-          }`,
+          content: `${document.c_johnLogo ? document.c_johnLogo.image.url : "https://a.mktgcdn.com/p-sandbox/vmLX9HZXAYj_-h8v_XTQ8kI_JH7RDzALu62-n-zEWvw/356x68.png"}`,
         },
       },
     ],
