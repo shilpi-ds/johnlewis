@@ -124,7 +124,7 @@ if (document.slug) {
   url = document.slug.toString();
 }
 else{
-  var repspc=document.name.replace(" ","_");
+  var repspc=document.name.replace(/\s+/g,"-");
   url=document.id+"-"+repspc.toLowerCase();
   
   
@@ -149,7 +149,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     url = document.slug.toString();
   }
   else{
-    var repspc=document.name.replace(" ","_");
+    var repspc=document.name.replace(/\s+/g,"-");
     url=document.id+"-"+repspc.toLowerCase();
     
     
@@ -576,7 +576,7 @@ breadcrumbScheme.push({
    
 
  {photoGallery ?
-              <div className="featured mb-[60px] h-[41.875rem] bg-[#f1f6fa]">
+              <div className="featured mb-[60px] h-[41.875rem] bg-[#f1f6fa] relative">
               <h2 className="pt-9 pb-[3.125rem]">{c_sliderTitle}</h2>
               <div className="photo-slider">{photoGallery && <PhotoSlider photoGallery={photoGallery}/> }</div>
       </div>

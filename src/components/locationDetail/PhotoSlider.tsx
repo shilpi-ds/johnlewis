@@ -2,6 +2,8 @@ import * as React from "react";
 import { useEffect, useState} from 'react';
 import { Splide, SplideSlide,SplideTrack} from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import left from '../../images/left.png';
+import right from '../../images/right.png';
 import $ from "jquery";
 const PhotoSlider = (props: any) => {
   
@@ -40,8 +42,8 @@ const PhotoSlider = (props: any) => {
      {photos}
     </SplideTrack>
     <div className="splide__arrows">
-    <button className="splide__arrow splide__arrow--prev"></button>
-    <button className="splide__arrow splide__arrow--next"></button>
+    <button className="splide__arrow splide__arrow--prev left-1/2 bottom-0 pb-20 ml-7 h-5"><img src={right}/></button>
+    <button className="splide__arrow splide__arrow--next right-1/2 bottom-0 pb-20 h-5"><img src={left}/></button>
   </div>
     </Splide>
 

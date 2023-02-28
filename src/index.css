@@ -380,7 +380,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .about-inner-sec{ @apply flex flex-wrap }
 .right-description .content-inner{@apply text-black leading-7 text-lg mt-3 md:mt-6 }
 .button-red{@apply btn  text-center font-second-main-font border border-red hover:bg-hover-btn bg-red-eb px-3 lg:px-5  xl:px-7 uppercase text-xs xl:text-base !leading-9 inline-block  text-white   py-0.5 }
-.about-sec .about-content .button-red{@apply w-[9.75rem] text-base }
+/*.about-sec .about-content .button-red{@apply w-[9.75rem] text-base }
 .about-inner-sec .splide .splide__arrows{ @apply absolute bottom-0 left-0 p-0.5 flex}
 .about-inner-sec .splide .splide__arrows .splide__arrow{  @apply relative top-auto left-auto transform translate-x-0 translate-y-0 !opacity-100 right-0 w-[4.375rem] h-[3.75rem] rounded-none bg-white disabled:hidden}
 .about-inner-sec .splide .splide__arrows .splide__arrow.splide__arrow--next{  @apply ml-0.5}
@@ -388,7 +388,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .about-inner-sec .splide__slide img{ @apply lg:h-full lg:object-cover transition-all duration-300}
 .about-inner-sec .splide__slide img:hover{@apply transform scale-105}
 .splide__slide img{  @apply w-full}
-.splide{  @apply w-full}
+.splide{  @apply w-full}*/
 .offerBanner{  @apply w-full pb-7 md:pb-10}
 .offerBanner img{  @apply w-full shadow-2xl}
 
@@ -417,7 +417,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .services-inner  .service-item .button-bx{@apply justify-start  max-w-[10.0625rem] sm:max-w-none  }
 .services-inner  .service-item .button-bx .btn{ @apply uppercase font-second-main-font  max-w-[10.0625rem] text-base border-gray }
 
-.services-inner #splide-nearby{
+/*.services-inner #splide-nearby{
   @apply max-w-[20rem] sm:max-w-[30rem] md:max-w-[40rem] xl:max-w-full mx-auto
 }
 .mobile-serv-item .service-img{@apply rounded-full w-32 h-32  }
@@ -426,7 +426,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .services-inner .mobile-serv-item{@apply w-full h-full}
 .services-inner .splide__arrow--prev{@apply -left-8 }
 .services-inner .splide__arrow--next{ @apply -right-8 }
-
+*/
 
 /* faq */
 .faq-main-sec{@apply m-0 relative pb-7 pt-0 md:pb-12 }
@@ -1051,3 +1051,17 @@ footer{
   position: relative;
 }
 */
+.splide__arrow{
+  top: 100%;
+  background: none;
+}
+.splide__arrow img{
+  height: 21px;
+}
+.splide{
+  position: static!important;
+}
+.splide__track{
+  position: static!important;
+}
+
