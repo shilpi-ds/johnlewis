@@ -1022,3 +1022,18 @@ transform: scale(1);
   
 }
 
+.featured.photo-slider .splide__arrows .splide__arrows--ltr button {
+  display: flex!important;
+  position: absolute;
+}
+/*.splide__arrow--prev
+{
+  display: flex!important;
+  position: relative;
+}
+.splide__arrow--next
+{
+  display: flex!important;
+  position: relative;
+}
+*/
