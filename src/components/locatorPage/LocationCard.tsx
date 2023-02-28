@@ -113,7 +113,17 @@ function opentime(e: any) {
 //  } else {
 //    url= `/${result.rawData.slug.toString()}.html`;
 //  }
-var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+"-"+result.rawData.name?.toLocaleLowerCase());
+var urlloc;
+if (result.rawData.slug) {
+  urlloc = result.rawData.slug.toString();
+}
+else{
+  var repspc=result.rawData.name.replace(/\s+/g,"-");
+  urlloc=result.rawData.id+"-"+repspc.toLowerCase();
+  
+  
+}
+//var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+"-"+result.rawData.name?.toLocaleLowerCase());
 //result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+ " " + result.rawData.name);
   
   return (

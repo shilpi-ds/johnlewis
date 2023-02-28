@@ -1,51 +1,70 @@
 import * as React from "react";
-import { useEffect, useState} from 'react';
-import { Splide, SplideSlide,SplideTrack} from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import { useEffect, useState} from 'react';import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { EffectCoverflow, Pagination ,Navigation } from "swiper";
 import left from '../../images/left.png';
 import right from '../../images/right.png';
 import $ from "jquery";
 const PhotoSlider = (props: any) => {
-  
+  //SwiperCore.use([Navigation, Pagination, EffectCoverflow,Autoplay]);
+ //SwiperCore.use([Autoplay]);
   const { photoGallery } = props;  
- console.log(photoGallery);
+ //console.log(photoGallery);
  
   const photos = photoGallery.map((element:any,index) => (  
       
-	<SplideSlide>
+	<SwiperSlide>
     <div className="why-slider"><img className='h-[360px] w-[360px] object-cover' src={element.image.url} alt=""/></div>
     <div className="sli-con text-center mt-[22px]"><a href={element.clickthroughUrl}><p>{element.description}</p></a>
     <p>{element.details}</p></div>
-	</SplideSlide> 
+	 </SwiperSlide>
     
   ));
   return (
     <>
-     
-     <Splide hasTrack={ false } options={ {
-      rewind: false,
-      width : '100%',
-      gap   : '80',
-      type: "loop",
-      perPage:5,
-      perMove: 1,
-      arrows:  true,
-      drag:true,
-      focus:0,
-      pagination:false,
-  } }
+   
+     <Swiper
+      effect={"coverflow"}
+      grabCursor={true}
+      centeredSlides={true}
+      slidesPerView={5}
+      navigation={true}
       
-      aria-label="My Favorite Images"
+     // observer = {true} 
+    //   autoplay={{
+    //     delay: 500,
+    //     disableOnInteraction: false
+    // }}
+      //observerParents={true}
+      coverflowEffect={{
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        
+        slideShadows: false,
+      }}
+      //spaceBetween= {100}
+      freeMode= {true}
+      loop={true}
+      //loopAdditionalSlides= {5} // slidesNum contains the initial slides number
+loopedSlides= {2}
+      //pagination={true}
+      modules={[EffectCoverflow, Navigation]}
+      className="mySwiper"
     >
-
-<SplideTrack>
      {photos}
-    </SplideTrack>
-    <div className="splide__arrows">
-    <button className="splide__arrow splide__arrow--prev left-1/2 bottom-0 pb-20 ml-7 h-5"><img src={right}/></button>
-    <button className="splide__arrow splide__arrow--next right-1/2 bottom-0 pb-20 h-5"><img src={left}/></button>
-  </div>
-    </Splide>
+     {/* <div class="swiper-arrows">
+       <div className="swiper-button-next">Next</div>
+ <div className="swiper-button-prev">Pre</div> 
+ </div> */}
+ 
+    </Swiper>
 
     
     </>
@@ -53,4 +72,5 @@ const PhotoSlider = (props: any) => {
 };
 
 export default PhotoSlider;
+
 

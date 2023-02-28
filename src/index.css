@@ -1065,3 +1065,32 @@ footer{
   position: static!important;
 }
 
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.swiper .swiper-coverflow{
+  height: 450px;
+  padding-top: 0;
+  padding-bottom: 0;
+
+}
+.mySwiper{
+  height: 450px;
+  padding-top: 0;
+  padding-bottom: 0;
+
+}
