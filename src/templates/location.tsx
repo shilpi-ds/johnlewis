@@ -120,7 +120,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   //   url += `${document.slug.toString()}.html`;
   // }
 
-  var url=document.slug?document.slug.toString():(document.id+ " " + document.name);
+  var url=document.slug?document.slug.toString():(document.id+"-"+document.name.toLowerCase());
   return url+".html";
 };
 /**
@@ -138,7 +138,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 }): HeadConfig => {
   let url = "";
   if (!document.slug) {
-    let slugString = document.id + " " + document.name;
+    let slugString = document.id+"-"+document.name.toLowerCase();
    // let slug = slugify(slugString);
     url = `${slugString}+.html`;
   } else {
@@ -451,47 +451,7 @@ breadcrumbScheme.push({
     name: document.name,
   },
 });
- // console.log(_site);
-/**
- * This allows the user to define a function which will take in their template
- * data and procude a HeadConfig object. When the site is generated, the HeadConfig
- * will be used to generate the inner contents of the HTML document's <head> tag.
- * This can include the title, meta tags, script tags, etc.
- */
-// 
-// const Location: Template<TemplateRenderProps> = ({
-//   relativePrefixToRoot,
-//   path,
-//   document,
-//   __meta,
  
-// }) => {
-//   const {
-//     _site,
-//     address,
-//     slug,
-//     hours,
-//     mainPhone,
-//     additionalHoursText,
-//     description,
-//     c_title,
-//     c_backImage,
-//     c_mainImage,
-//     c_seoCta,
-//     photoGallery,
-//     c_sliderTitle,
-//     c_relatedFaqs,
-//     timezone,
-//     yextDisplayCoordinate,
-//     displayCoordinate,
-//     cityCoordinate,
-//     c_faqTitle,
-//     c_brandTitle,
-//       c_brandGallery,
-//       c_offers,
-//     name
-//   } = document;
-
   let imageurl = photoGallery ? photoGallery.map((element: any) => {
     return element.image.url
   }) : null;
@@ -499,7 +459,7 @@ breadcrumbScheme.push({
   return (
 
     <>
-{/* <PageLayout gdata={_site}> */}
+
      
 <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
 <JsonLd<Store>
@@ -595,9 +555,9 @@ breadcrumbScheme.push({
             : ''}
         </div>
 
-        <div class="images flex relative">
-            <div class=""><img class="w-[34.662rem] h-[25.044rem] rounded-2xl" src={c_backImage.url} alt=""/></div>
-            <div class="" ><img class="w-[34.662rem] h-[25.044rem] object-cover absolute top-10 right-[34px] rounded-xl" src={c_mainImage.url} alt=""/></div>
+        <div className="images flex relative">
+            <div className=""><img className="w-[34.662rem] h-[25.044rem] rounded-2xl" src={c_backImage.url} alt=""/></div>
+            <div className="" ><img className="w-[34.662rem] h-[25.044rem] object-cover absolute top-10 right-[34px] rounded-xl" src={c_mainImage.url} alt=""/></div>
         </div>
 
     </div>
@@ -653,3 +613,7 @@ breadcrumbScheme.push({
 };
 
 export default Location;
+
+function toLowerCase(name: any) {
+  throw new Error("Function not implemented.");
+}

@@ -242,7 +242,7 @@ table.day-hrs .time-b{  @apply text-lg md:text-lg  w-auto leading-[1.875rem] rou
 }
 
 .icon-row{
-  @apply pl-7 relative mb-3 flex flex-col
+  @apply pl-4 relative mb-3 flex flex-col
 }
 .icon-row.location-name-miles{
   @apply mb-2
@@ -1026,6 +1026,20 @@ transform: scale(1);
   display: flex!important;
   position: absolute;
 }
+footer{
+  margin-top: 60px;
+}
+.search-field .search-btn
+{
+  margin-right: 32px;
+}
+.search-bx button.useMyLocation{
+  margin-right: 15px;
+}
+.search-bx{
+  padding-bottom: 0;
+}
+
 /*.splide__arrow--prev
 {
   display: flex!important;

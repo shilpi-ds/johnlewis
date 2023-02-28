@@ -6,13 +6,13 @@ import $ from "jquery";
 const PhotoSlider = (props: any) => {
   
   const { photoGallery } = props;  
- // console.log(photoGallery);
+ console.log(photoGallery);
  
   const photos = photoGallery.map((element:any,index) => (  
       
 	<SplideSlide>
     <div className="why-slider"><img className='h-[360px] w-[360px] object-cover' src={element.image.url} alt=""/></div>
-    <div className="sli-con text-center mt-[22px]"><p>{element.description}</p>
+    <div className="sli-con text-center mt-[22px]"><a href={element.clickthroughUrl}><p>{element.description}</p></a>
     <p>{element.details}</p></div>
 	</SplideSlide> 
     

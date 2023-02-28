@@ -113,7 +113,8 @@ function opentime(e: any) {
 //  } else {
 //    url= `/${result.rawData.slug.toString()}.html`;
 //  }
-var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+ " " + result.rawData.name);
+var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+"-"+result.rawData.name?.toLocaleLowerCase());
+//result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+ " " + result.rawData.name);
   
   return (
     <div className={`result-list-inner-${result.index} result onhighLight bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5"`}>
@@ -157,9 +158,9 @@ var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id
                         
                 :
                 <Link
-                className={timeStatus + "onhighLight "}
+                className={timeStatus + "onhighLight flex gap-2"}
                 href="javascript:void(0);"
-                onClick={onOpenHide}
+                onClick={onOpenHide} 
               >
                 <OpenCloseStatus
                 timezone={timezone ? timezone : defaultTimeZone}

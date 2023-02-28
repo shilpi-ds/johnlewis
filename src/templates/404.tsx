@@ -11,6 +11,7 @@ import * as React from "react";
 import favicon from "../images/john-lewis.svg";
 import { StaticData } from "../../sites-global/staticData";
 import PageLayout from "../components/layouts/PageLayout";
+import "../index.css";
 export const config: TemplateConfig = {
   stream: {
     $id: "404",
