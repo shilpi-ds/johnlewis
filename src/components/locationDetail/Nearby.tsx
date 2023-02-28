@@ -65,7 +65,7 @@ export default function Nearby(props: any) {
           // } else {
           //   url = `/${location.data.slug.toString()}.html`;
           // }
-          var urlloc=location.data.slug?location.data.slug.toString():(location.data.id+ " " + location.data.name);
+          var urlloc=location.data.slug?location.data.slug.toString():(location.data.id+"-"+location.data.name.toLowerCase());
           if (index > 0) {
             return (
               <>

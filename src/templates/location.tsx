@@ -105,7 +105,7 @@ export const config: TemplateConfig = {
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  // var url = "";
+   var url = "";
   // var name: any = document.name.toLowerCase();
   // var string: any = name.toString();;
   // let result: any = string.replaceAll(" ", "-");
@@ -119,8 +119,16 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   // } else {
   //   url += `${document.slug.toString()}.html`;
   // }
-
-  var url=document.slug?document.slug.toString():(document.id+"-"+document.name.toLowerCase());
+//var repspc=key.replace(" ","_");
+if (document.slug) {
+  url = document.slug.toString();
+}
+else{
+  var repspc=document.name.replace(" ","_");
+  url=document.id+"-"+repspc.toLowerCase();
+  
+  
+}
   return url+".html";
 };
 /**
@@ -137,12 +145,14 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
 }): HeadConfig => {
   let url = "";
-  if (!document.slug) {
-    let slugString = document.id+"-"+document.name.toLowerCase();
-   // let slug = slugify(slugString);
-    url = `${slugString}+.html`;
-  } else {
-    url = `${document.slug.toString()}+.html`;
+  if (document.slug) {
+    url = document.slug.toString();
+  }
+  else{
+    var repspc=document.name.replace(" ","_");
+    url=document.id+"-"+repspc.toLowerCase();
+    
+    
   }
   // <meta name="google-site-verification" content="WIqhwAw2ugRAKEYRRqis1ZfUBbnWe_AXSoDltHceCbI" />
   let metaDescription = document.c_metaDescription

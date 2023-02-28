@@ -252,7 +252,7 @@ const region: Template<TemplateRenderProps> = ({
           let detlslug1 = "";
 
           if (!res.slug) {
-            let slugString = res.id + " " + res.name();
+            let slugString = res.id+"-"+res.name();
             let slug = slugString;
             detlslug1 = `${slug}.html`;
           } else {
@@ -263,7 +263,7 @@ const region: Template<TemplateRenderProps> = ({
 
         })
       } else {
-        detlslug = "gb/" + slug + "/" + entity.slug + ".html";
+        detlslug = "gb/"+slug+"/"+entity.slug+".html";
       }
 
     }

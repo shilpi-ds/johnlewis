@@ -251,7 +251,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
       let detlslug1 = "";
 
       if (!res.slug) {
-        let slugString = res.id + " " + res.name;
+        let slugString = res.id+"-"+res.name;
         let slug = slugString;
         detlslug1 = `${slug}.html`;
       } else {
@@ -268,7 +268,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
       res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
 
         if (!detl.slug) {
-          let slugString = detl.id + " " + detl.name;
+          let slugString = detl.id+"-"+detl.name;
           let slug =slugString;
           detlslug1 = `${slug}.html`;
         } else {
@@ -283,7 +283,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
     })
   }
   else {
-    detlslug = slug + "/" + entity.slug + ".html";
+    detlslug = slug+"/"+entity.slug+".html";
   }
 }
 
