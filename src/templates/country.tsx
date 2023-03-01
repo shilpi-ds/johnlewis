@@ -275,7 +275,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 
       // console.log(entity.name, res);
 
-      res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
+      res.dm_directoryChildren ? res.dm_directoryChildren?.map((detl: any) => {
 //console.log(detl);
     //var name: any = document.name?.toLowerCase();
  // var mainPhones: any = result.rawData.mainPhone;
@@ -292,13 +292,13 @@ if (typeof entity.dm_directoryChildren != "undefined") {
  //let result1: any = string.replaceAll(" ", "-");
  
         if (!detl.slug) {
-          let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
+          let slugString = detl.id+"-"+(detl.name?.replace(/\s+/g,"-"))?.toLowerCase();
           let slug =country + "/" + finalregion + "/" + finalcity +
           "/" +
           slugString ;
           detlslug1 = `${slug}.html`;
         } else {
-          detlslug1 = `${detl.slug.toString()}.html`;
+          detlslug1 = `${detl.slug?.toString()}.html`;
         }
 
         detlslug = detlslug1;
