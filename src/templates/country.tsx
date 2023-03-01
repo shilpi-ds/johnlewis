@@ -250,32 +250,30 @@ console.log(entity);
 if (typeof entity.dm_directoryChildren != "undefined") {
   if (entity.dm_directoryChildrenCount == 1) {
     entity.dm_directoryChildren.map((res: any) => {
-//console.log(res);
+
       let detlslug1 = "";
 
       if (!res.slug) {
-        let slugString = res.id+"-"+res.name;
+        let slugString = res.id + " " + res.name;
         let slug = slugString;
         detlslug1 = `${slug}.html`;
       } else {
         detlslug1 = `${res.slug.toString()}.html`;
       }
-
-      
-      // if (res.meta.entityType.id == 'ce_city') {
-      //   detlslug1 = "gb/" + detlslug1;
-      // } else {
-      //   detlslug1 = detlslug1;
-      // }
+      if (res.meta.entityType.id == 'ce_city') {
+        detlslug1 = "gb/" + detlslug1;
+      } else {
+        detlslug1 = detlslug1;
+      }
 
       // console.log(entity.name, res);
 
       res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
-//console.log(detl);
+
         if (!detl.slug) {
-          let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
+          let slugString = detl.id + " " + detl.name;
           let slug =slugString;
-          detlslug1 = `/${slug}.html`;
+          detlslug1 = `${slug}.html`;
         } else {
           detlslug1 = `${detl.slug.toString()}.html`;
         }
@@ -288,9 +286,10 @@ if (typeof entity.dm_directoryChildren != "undefined") {
     })
   }
   else {
-    detlslug = slug+"/"+entity.slug+".html";
+    detlslug = slug + "/" + entity.slug + ".html";
   }
 }
+
 
 
     return (
