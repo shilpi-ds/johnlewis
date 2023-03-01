@@ -275,7 +275,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
         if (!detl.slug) {
           let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
           let slug =slugString;
-          detlslug1 = `${slug}.html`;
+          detlslug1 = `/${slug}.html`;
         } else {
           detlslug1 = `${detl.slug.toString()}.html`;
         }
