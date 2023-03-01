@@ -293,12 +293,12 @@ const City: Template<TemplateRenderProps> = ({
     //let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
     let result:any=string.replace(/\s+/g,"-");
     if (!entity.slug) {
-      url = country + "/" + region + "/" + city +
+      url = "/" +country + "/" + finalregion + "/" + finalcity +
       "/" +
       entity.id+"-"+result +
       ".html";
     } else {
-      url = country + "/" + region + "/" + city +
+      url = "/" +country + "/" + finalregion + "/" + finalcity +
       "/" +
       entity.slug?.toString() +
       ".html";
