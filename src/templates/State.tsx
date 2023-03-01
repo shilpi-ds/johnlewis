@@ -252,7 +252,7 @@ const region: Template<TemplateRenderProps> = ({
           let detlslug1 = "";
 
           if (!res.slug) {
-            let slugString = res.id + "-" + res.name.toLowerCase();
+            let slugString = res.id+"-"+(res.name.replace(/\s+/g,"-")).toLowerCase();
             let slug = slugString;
             detlslug1 = `${slug}.html`;
           } else {
