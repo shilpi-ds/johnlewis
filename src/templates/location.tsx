@@ -106,19 +106,32 @@ export const config: TemplateConfig = {
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
    var url = "";
-   var name: any = document.name.toLowerCase();
-   var string: any = name.toString();;
-   let result: any = string.replaceAll(" ", "-");
-   document.dm_directoryParents.map((result: any, i: Number) => {
-     if (i > 0) {
-       url += result.slug + "/"
-     }
-   })
-   if (!document.slug) {
-     url += `${result}.html`;
-   } else {
-     url += `${document.slug.toString()}.html`;
-   }
+   var name: any = document.name?.toLowerCase();
+ // var mainPhones: any = result.rawData.mainPhone;
+  var country: any = document.address.countryCode?.toLowerCase();
+  var region: any = document.address.region
+    ?.toLowerCase()
+    .replaceAll(" ", "-");
+  var initialregion: any = region.toString();
+  var finalregion: any = initialregion.replaceAll(" ", "-");
+  var city: any = document.address.city?.toLowerCase();
+  var initialrcity: any = city.toString();
+  var finalcity: any = initialrcity.replaceAll(" ", "-");
+  var string: any = name.toString();
+  let result1: any = string.replaceAll(" ", "-");
+  if (!document.slug) {
+    var repspc=document.name.replace(/\s+/g,"-");
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    document.id+"-"+repspc.toLowerCase() +
+    ".html";
+  } else {
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    document.slug?.toString() +
+    ".html";
+  }
+  url=`/${link}`;
 //var repspc=key.replace(" ","_");
 // if (document.slug) {
 //   url = document.slug.toString();
