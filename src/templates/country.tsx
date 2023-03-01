@@ -52,7 +52,7 @@ export const config: TemplateConfig = {
       "dm_directoryChildren.dm_directoryChildren.name",
       "dm_directoryChildren.dm_directoryChildrenCount",
       "dm_directoryChildren.dm_directoryChildren.slug",
-      //"dm_directoryChildren.dm_directoryChildren.entityId",
+      "dm_directoryChildren.dm_directoryChildren.meta.entityType",
       "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.name",
       "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.slug",
       "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.id"
@@ -250,7 +250,7 @@ console.log(entity);
 if (typeof entity.dm_directoryChildren != "undefined") {
   if (entity.dm_directoryChildrenCount == 1) {
     entity.dm_directoryChildren.map((res: any) => {
-
+//console.log(res);
       let detlslug1 = "";
 
       if (!res.slug) {
@@ -260,18 +260,20 @@ if (typeof entity.dm_directoryChildren != "undefined") {
       } else {
         detlslug1 = `${res.slug.toString()}.html`;
       }
-      if (res.meta.entityType.id == 'ce_city') {
+
+      
+       if (res.meta.entityType.id == 'ce_city') {
         detlslug1 = "gb/" + detlslug1;
-      } else {
-        detlslug1 = detlslug1;
-      }
+       } else {
+         detlslug1 = detlslug1;
+       }
 
       // console.log(entity.name, res);
 
       res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
-
+//console.log(detl);
         if (!detl.slug) {
-          let slugString = detl.id+"-"+detl.name;
+          let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
           let slug =slugString;
           detlslug1 = `${slug}.html`;
         } else {
@@ -289,7 +291,6 @@ if (typeof entity.dm_directoryChildren != "undefined") {
     detlslug = slug+"/"+entity.slug+".html";
   }
 }
-
 
 
     return (
