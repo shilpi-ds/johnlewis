@@ -243,6 +243,10 @@ const country: Template<TemplateRenderProps> = ({
     dm_directoryParents,
     dm_directoryChildren
   } = document;
+
+  const { doc } =document;
+
+
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
@@ -272,9 +276,25 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 
       res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
 //console.log(detl);
+    //var name: any = document.name?.toLowerCase();
+ // var mainPhones: any = result.rawData.mainPhone;
+ var country: any = document.doc.countryCode?.toLowerCase();
+ var region: any = document.doc.region
+   ?.toLowerCase()
+   .replaceAll(" ", "-");
+ var initialregion: any = region.toString();
+ var finalregion: any = initialregion.replaceAll(" ", "-");
+ var city: any = document.doc.city?.toLowerCase();
+ var initialrcity: any = city.toString();
+ var finalcity: any = initialrcity.replaceAll(" ", "-");
+ var string: any = name.toString();
+ let result1: any = string.replaceAll(" ", "-");
+ 
         if (!detl.slug) {
           let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
-          let slug =slugString;
+          let slug =country + "/" + region + "/" + city +
+          "/" +
+          slugString ;
           detlslug1 = `${slug}.html`;
         } else {
           detlslug1 = `${detl.slug.toString()}.html`;
