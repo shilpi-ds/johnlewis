@@ -365,7 +365,7 @@ export default function InputDropdown({
       <div className={cssClasses?.inputContainer}>
         <div className={cssClasses.logoContainer}>{renderLogo()}</div>
         <input
-          className={cssClasses.inputElement}
+          className={cssClasses.inputElement} required
           placeholder={placeholder}
           onChange={(evt) => {
             const value = evt.target.value;
