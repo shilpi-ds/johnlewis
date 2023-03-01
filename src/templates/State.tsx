@@ -248,11 +248,11 @@ const region: Template<TemplateRenderProps> = ({
 
       if (entity.dm_directoryChildrenCount == 1) {
         entity.dm_directoryChildren.map((res: any) => {
-         //console.log(res,"res")
+         console.log(res,"res")
           let detlslug1 = "";
 
           if (!res.slug) {
-            let slugString = res.id+"-"+res.name();
+            let slugString = res.id + "-" + res.name.toLowerCase();
             let slug = slugString;
             detlslug1 = `${slug}.html`;
           } else {
@@ -263,7 +263,7 @@ const region: Template<TemplateRenderProps> = ({
 
         })
       } else {
-        detlslug = "gb/"+slug+"/"+entity.slug+".html";
+        detlslug = "gb/" + slug + "/" + entity.slug + ".html";
       }
 
     }
