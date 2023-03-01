@@ -280,6 +280,7 @@ const City: Template<TemplateRenderProps> = ({
     }
     // let key: any = Object.keys(entity.hours)[0];
     var url = "";
+    var country: any = document.address.countryCode?.toLowerCase();
     var name: any = entity.name?.toLowerCase();
     var region: any = entity.address.region?.toLowerCase();
     var initialregion: any = region?.toString();
@@ -292,13 +293,18 @@ const City: Template<TemplateRenderProps> = ({
     //let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
     let result:any=string.replace(/\s+/g,"-");
     if (!entity.slug) {
-      url = `/${entity.id}-${result}.html`;
+      url = country + "/" + region + "/" + city +
+      "/" +
+      entity.id+"-"+result +
+      ".html";
     } else {
-      url = `/${entity.slug?.toString()}.html`;
+      url = country + "/" + region + "/" + city +
+      "/" +
+      entity.slug?.toString() +
+      ".html";
     }
 
-
-
+   
 
 
     return (
