@@ -669,13 +669,43 @@ function UnwrappedGoogleMaps({
   /** Function InfowindowContents returns Html*/
   function InfowindowContents(i: Number, result: any): void {    
     var url = "";
-    if (!result.rawData.slug) {
-      let slugString = result?.id + " " + result?.name;
-      //let slug = slugify(slugString);
-      url = `${slugString}.html`;
-    } else {
-      url = `${result.rawData.slug.toString()}.html`;
-    }
+    var name: any = result.rawData.name?.toLowerCase();
+ // var mainPhones: any = result.rawData.mainPhone;
+  var country: any = result.rawData.address.countryCode?.toLowerCase();
+  var region: any = result.rawData.address.region
+    ?.toLowerCase()
+    .replaceAll(" ", "-");
+  var initialregion: any = region.toString();
+  var finalregion: any = initialregion.replaceAll(" ", "-");
+  var city: any = result.rawData.address.city?.toLowerCase();
+  var initialrcity: any = city.toString();
+  var finalcity: any = initialrcity.replaceAll(" ", "-");
+  var strings: any = name.toString();
+  let result1: any = strings.replaceAll(" ", "-");
+  if (!result.rawData.slug) {
+    var repspc=result.rawData.name.replace(/\s+/g,"-");
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    result.rawData.id+"-"+repspc.toLowerCase() +
+    ".html";
+  } else {
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    result.rawData.slug?.toString() +
+    ".html";
+  }
+  url=`/${link}`;
+
+
+
+
+    // if (!result.rawData.slug) {
+    //   let slugString = result?.id + " " + result?.name;
+    //   //let slug = slugify(slugString);
+    //   url = `${slugString}.html`;
+    // } else {
+    //   url = `${result.rawData.slug.toString()}.html`;
+    // }
 
     const MarkerContent = (
       <div className="bg-white shadow-lg w-[21.875rem]">

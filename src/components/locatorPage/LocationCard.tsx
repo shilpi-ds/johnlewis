@@ -99,6 +99,33 @@ function opentime(e: any) {
 }
 
     const { address } = result.rawData;
+
+    var name: any = result.rawData.name?.toLowerCase();
+ // var mainPhones: any = result.rawData.mainPhone;
+  var country: any = result.rawData.address.countryCode?.toLowerCase();
+  var region: any = result.rawData.address.region
+    ?.toLowerCase()
+    .replaceAll(" ", "-");
+  var initialregion: any = region.toString();
+  var finalregion: any = initialregion.replaceAll(" ", "-");
+  var city: any = result.rawData.address.city?.toLowerCase();
+  var initialrcity: any = city.toString();
+  var finalcity: any = initialrcity.replaceAll(" ", "-");
+  var string: any = name.toString();
+  let result1: any = string.replaceAll(" ", "-");
+  if (!result.rawData.slug) {
+    var repspc=result.rawData.name.replace(/\s+/g,"-");
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    result.rawData.id+"-"+repspc.toLowerCase() +
+    ".html";
+  } else {
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    result.rawData.slug?.toString() +
+    ".html";
+  }
+  url=`/${link}`;
 //     var name: any = result.rawData.name?.toLowerCase();
 //   var region: any = result.rawData.address.region?.toLowerCase();
 //   var initialregion: any = region.toString();
@@ -113,16 +140,16 @@ function opentime(e: any) {
 //  } else {
 //    url= `/${result.rawData.slug.toString()}.html`;
 //  }
-var urlloc;
-if (result.rawData.slug) {
-  urlloc = result.rawData.slug.toString();
-}
-else{
-  var repspc=result.rawData.name.replace(/\s+/g,"-");
-  urlloc=result.rawData.id+"-"+repspc.toLowerCase();
+// var urlloc;
+// if (result.rawData.slug) {
+//   urlloc = result.rawData.slug.toString();
+// }
+// else{
+//   var repspc=result.rawData.name.replace(/\s+/g,"-");
+//   urlloc=result.rawData.id+"-"+repspc.toLowerCase();
   
   
-}
+// }
 //var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+"-"+result.rawData.name?.toLocaleLowerCase());
 //result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+ " " + result.rawData.name);
   
@@ -130,7 +157,7 @@ else{
     <div className={`result-list-inner-${result.index} result onhighLight bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5"`}>
       
         <div className="flex justify-between items-center pt-3 ml-4">
-            <h5 className="underline underline-offset-8 font-bold text-lg"><a href={urlloc+".html"}>{result.rawData.name}</a></h5>
+            <h5 className="underline underline-offset-8 font-bold text-lg"><a href={url}>{result.rawData.name}</a></h5>
             {typeof result.distance != "undefined" ?  
             <p className="pr-6 text-base font-semibold">{metersToMiles(result.distance)} <span>{StaticData.miles}</span></p>
              : ''}
@@ -217,7 +244,7 @@ else{
             rel="noopener noreferrer"
             //conversionDetails={conversionDetails_direction}
           >Shop Directions </Link></button>
-            <button className="text-white text-sm py-1.5 bg-black min-w-[11.25rem]"><Link type="button" href={urlloc+".html"} className=" btn notHighlight "
+            <button className="text-white text-sm py-1.5 bg-black min-w-[11.25rem]"><Link type="button" href={url} className=" btn notHighlight "
         data-ya-track={`viewStore -${result.rawData.name}`}
         eventName={`viewStore -${result.rawData.name}`}
         rel="noopener noreferrer"

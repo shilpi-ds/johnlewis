@@ -289,14 +289,16 @@ const City: Template<TemplateRenderProps> = ({
     var finalcity: any = initialrcity?.replaceAll(" ", "-");
     
     var string: any = name?.toString();;
-    let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
+    //let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
+    let result:any=string.replace(/\s+/g,"-");
     if (!entity.slug) {
-      url = `/${entity.id} ${result}.html`;
+      url = `/${entity.id}-${result}.html`;
     } else {
       url = `/${entity.slug?.toString()}.html`;
     }
 
-    
+
+
 
     return (
 

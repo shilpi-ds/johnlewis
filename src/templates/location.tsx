@@ -106,29 +106,29 @@ export const config: TemplateConfig = {
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
    var url = "";
-  // var name: any = document.name.toLowerCase();
-  // var string: any = name.toString();;
-  // let result: any = string.replaceAll(" ", "-");
-  // document.dm_directoryParents.map((result: any, i: Number) => {
-  //   if (i > 0) {
-  //     url += result.slug + "/"
-  //   }
-  // })
-  // if (!document.slug) {
-  //   url += `${result}.html`;
-  // } else {
-  //   url += `${document.slug.toString()}.html`;
-  // }
+   var name: any = document.name.toLowerCase();
+   var string: any = name.toString();;
+   let result: any = string.replaceAll(" ", "-");
+   document.dm_directoryParents.map((result: any, i: Number) => {
+     if (i > 0) {
+       url += result.slug + "/"
+     }
+   })
+   if (!document.slug) {
+     url += `${result}.html`;
+   } else {
+     url += `${document.slug.toString()}.html`;
+   }
 //var repspc=key.replace(" ","_");
-if (document.slug) {
-  url = document.slug.toString();
-}
-else{
-  var repspc=document.name.replace(/\s+/g,"-");
-  url=document.id+"-"+repspc.toLowerCase();
+// if (document.slug) {
+//   url = document.slug.toString();
+// }
+// else{
+//   var repspc=document.name.replace(/\s+/g,"-");
+//   url=document.id+"-"+repspc.toLowerCase();
   
   
-}
+// }
   return url+".html";
 };
 /**
@@ -593,7 +593,7 @@ breadcrumbScheme.push({
        
 
      {c_relatedFaqs && <Accordion content={c_relatedFaqs} title={c_faqTitle}/> }
-      
+    
 
              {yextDisplayCoordinate || cityCoordinate || displayCoordinate ?
          

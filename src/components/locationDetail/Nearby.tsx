@@ -50,22 +50,66 @@ export default function Nearby(props: any) {
       > */}
         {neabyData.map((location: any, index: Number) => {
 
-          // let url = "";
-          // var name: any = location.data.name?.toLowerCase();
-          // var region: any = location.data.address.region?.toLowerCase();
-          // var initialregion: any = region.toString();
-          // var finalregion: any = initialregion.replaceAll(" ", "-");
-          // var city: any = location.data.address.city?.toLowerCase();
-          // var initialrcity: any = city.toString();
-          // var finalcity: any = initialrcity.replaceAll(" ", "-");
-          // var string: any = name.toString();
-          // let result1: any = string.replaceAll(" ", "-");
-          // if (!location.data.slug) {
-          //   url = `/${location.data.id}-${result1}.html`;
-          // } else {
-          //   url = `/${location.data.slug.toString()}.html`;
-          // }
-          var urlloc=location.data.slug?location.data.slug.toString():(location.data.id+"-"+location.data.name.toLowerCase());
+           let url = "";
+          //  var name: any = location.data.name?.toLowerCase();
+          //  var region: any = location.data.address.region?.toLowerCase();
+          //  var initialregion: any = region.toString();
+          //  var finalregion: any = initialregion.replaceAll(" ", "-");
+          //  var city: any = location.data.address.city?.toLowerCase();
+          //  var initialrcity: any = city.toString();
+          //  var finalcity: any = initialrcity.replaceAll(" ", "-");
+          //  var string: any = name.toString();
+          //  let result1: any = string.replaceAll(" ", "-");
+          //  if (!location.data.slug) {
+          //    url = `/${location.data.id}-${result1}.html`;
+          //  } else {
+          //    url = `/${location.data.slug.toString()}.html`;
+          //  }
+
+           var name: any = location.data.name?.toLowerCase();
+  var mainPhone: any = location.data.mainPhone;
+  var country: any = location.data.address.countryCode?.toLowerCase();
+  var region: any = location.data.address.region
+    ?.toLowerCase()
+    .replaceAll(" ", "-");
+  var initialregion: any = region.toString();
+  var finalregion: any = initialregion.replaceAll(" ", "-");
+  var city: any = location.data.address.city?.toLowerCase();
+  var initialrcity: any = city.toString();
+  var finalcity: any = initialrcity.replaceAll(" ", "-");
+  var string: any = name.toString();
+  let result1: any = string.replaceAll(" ", "-");
+  if (!location.data.slug) {
+    var repspc=location.data.name.replace(/\s+/g,"-");
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    location.data.id+"-"+repspc.toLowerCase() +
+    ".html";
+  } else {
+    var link =country + "/" + region + "/" + city +
+    "/" +
+    location.data.slug?.toString() +
+    ".html";
+  }
+  url=`/${link}`;
+  
+  // console.log(link, "link");
+  // if (!location.data.slug) {
+  //   url = `/${link}.html`;
+  // } else {
+  //   url = `/${link}`;
+  // }
+//           var urlloc;
+// if (location.data.slug) {
+//   urlloc = location.data.slug.toString();
+// }
+// else{
+//   var repspc=location.data.name.replace(/\s+/g,"-");
+//   urlloc=location.data.id+"-"+repspc.toLowerCase();
+  
+  
+// }
+          //var urlloc=location.data.slug?location.data.slug.toString():(location.data.id+"-"+location.data.name.toLowerCase());
           if (index > 0) {
             return (
               <>
@@ -74,7 +118,7 @@ export default function Nearby(props: any) {
                 {/* <p className="text-center">Near by stores</p> */}
 
         <div className="flex justify-between items-center pt-3 ml-4">
-            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={urlloc+".html"}
+            <h5 className="underline underline-offset-8 font-bold"><Link className="inline-block notHighlight" href={url}
                 data-ya-track={`${location.data.name}`}
                 eventName={`${location.data.name}`}
                 rel="noopener noreferrer">{location.data.name}</Link></h5>
@@ -109,7 +153,7 @@ export default function Nearby(props: any) {
         <div className="mt-[1.375rem] flex justify-center gap-2 pb-6">
             <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><GetDirection buttonText={props.c_getDirectionsCTAText?props.c_getDirectionsCTAText:"Shop Directions"} address={location.data.address} latitude={location.data.displayCoordinate ? location.data.displayCoordinate.latitude : location.data.yextDisplayCoordinate.latitude} longitude={location.data.displayCoordinate ? location.data.displayCoordinate.longitude : location.data.yextDisplayCoordinate.longitude} />
             </button>
-            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={urlloc+".html"}
+            <button className="text-white text-sm py-1 bg-black w-[8.75rem]"><Link className="btn" href={url}
                 data-ya-track={`viewstore-${location.data.name}`}
                 eventName={`viewstore-${location.data.name}`}
                 rel="noopener noreferrer">

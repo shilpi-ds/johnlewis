@@ -149,6 +149,9 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
     if(searchKey[0].value!=""){
     getCoordinates(Search);
     }
+    if(searchKey[0].value==""){
+      alert("Please fill this field");
+      }
     //console.log(locationinbuit.length,"fisttimedispaly")
     if(locationinbuit.length==0){
       setDisplaymsg(true)
