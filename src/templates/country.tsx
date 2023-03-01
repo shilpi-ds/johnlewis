@@ -279,13 +279,13 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 //console.log(detl);
     //var name: any = document.name?.toLowerCase();
  // var mainPhones: any = result.rawData.mainPhone;
- var country: any = document.doc.countryCode?.toLowerCase();
- var region: any = document.doc.region
+ var country: any = document.doc?.countryCode?.toLowerCase();
+ var region: any = document.doc?.region
    ?.toLowerCase()
    ?.replaceAll(" ", "-");
  var initialregion: any = region?.toString();
  var finalregion: any = initialregion?.replaceAll(" ", "-");
- var city: any = document.doc.city?.toLowerCase();
+ var city: any = document.doc?.city?.toLowerCase();
  var initialrcity: any = city?.toString();
  var finalcity: any = initialrcity?.replaceAll(" ", "-");
  //var string: any = name?.toString();
