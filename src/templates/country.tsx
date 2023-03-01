@@ -283,7 +283,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
  var region: any = document.region
    ?.toLowerCase()
    .replaceAll(" ", "-");
- var initialregion: any = region.toString();
+ var initialregion: any = region?.toString();
  var finalregion: any = initialregion?.replaceAll(" ", "-");
  var city: any = document.city?.toLowerCase();
  var initialrcity: any = city?.toString();
