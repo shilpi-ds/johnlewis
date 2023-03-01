@@ -127,9 +127,9 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //   var repspc=document.name.replace(/\s+/g,"-");
 //   url=document.id+"-"+repspc.toLowerCase();
   
-  
+  console.log(url);
 // }
-  return url+".html";
+  return url;
 };
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
@@ -508,7 +508,7 @@ breadcrumbScheme.push({
         ></BreadCrumbs>
 <HeaderBanner title={_site.c_bannerTitle} description={_site.c_bannerDescription} himage={_site.c_bannerImage.image.url} blabel={_site.c_bannerUrl.label} burl={_site.c_bannerUrl.link}/>
 
-     
+  
 
           <div className="mt-3 bg-[#F1F6FA]">
         <p className="text-[1.75rem] font-medium text-center py-3"><OpenCloseStatus timezone={timezone} hours={hours} /></p>
