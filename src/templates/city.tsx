@@ -280,7 +280,7 @@ const City: Template<TemplateRenderProps> = ({
     }
     // let key: any = Object.keys(entity.hours)[0];
     var url = "";
-    var country: any = document.address.countryCode?.toLowerCase();
+    var country: any = entity.address.countryCode?.toLowerCase();
     var name: any = entity.name?.toLowerCase();
     var region: any = entity.address.region?.toLowerCase();
     var initialregion: any = region?.toString();
