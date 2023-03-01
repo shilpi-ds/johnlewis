@@ -284,16 +284,16 @@ if (typeof entity.dm_directoryChildren != "undefined") {
    ?.toLowerCase()
    .replaceAll(" ", "-");
  var initialregion: any = region.toString();
- var finalregion: any = initialregion.replaceAll(" ", "-");
+ var finalregion: any = initialregion?.replaceAll(" ", "-");
  var city: any = document.city?.toLowerCase();
- var initialrcity: any = city.toString();
+ var initialrcity: any = city?.toString();
  var finalcity: any = initialrcity.replaceAll(" ", "-");
- var string: any = name.toString();
- let result1: any = string.replaceAll(" ", "-");
+ //var string: any = name?.toString();
+ //let result1: any = string.replaceAll(" ", "-");
  
         if (!detl.slug) {
           let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
-          let slug =country + "/" + region + "/" + city +
+          let slug =country + "/" + finalregion + "/" + finalcity +
           "/" +
           slugString ;
           detlslug1 = `${slug}.html`;
