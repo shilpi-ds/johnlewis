@@ -270,6 +270,7 @@ const City: Template<TemplateRenderProps> = ({
     }
     // let key: any = Object.keys(entity.hours)[0];
     var url = "";
+    var address=entity?.address;
     var country: any = entity?.address?.countryCode?.toLowerCase();
     var name: any = entity?.name?.toLowerCase();
     var region: any = entity?.address?.region?.toLowerCase();
@@ -409,7 +410,7 @@ const City: Template<TemplateRenderProps> = ({
       <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
         <BreadCrumbs
           name={name}
-          address={address}
+          address={dm_directoryChildren.address}
           parents={dm_directoryParents}
           baseUrl={relativePrefixToRoot}
         ></BreadCrumbs>
