@@ -243,17 +243,17 @@ const region: Template<TemplateRenderProps> = ({
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
-
+    console.log(entity,"entity");
     if (typeof entity.dm_directoryChildren != "undefined") {
 
       if (entity.dm_directoryChildrenCount == 1) {
         entity.dm_directoryChildren.map((res: any) => {
-         console.log(res,"res")
+         //console.log(res,"res")
           let detlslug1 = "";
 
           if (!res.slug) {
             let slugString = res.id+"-"+(res.name.replace(/\s+/g,"-")).toLowerCase();
-            let slugi = "gb/" + slug + "/" + slugString;
+            let slugi = "gb/" + entity.slug + "/" + slugString;
             detlslug1 = `${slugi}.html`;
           } else {
             detlslug1 = `${res.slug.toString()}.html`;
