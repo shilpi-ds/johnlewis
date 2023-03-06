@@ -253,8 +253,8 @@ const region: Template<TemplateRenderProps> = ({
 
           if (!res.slug) {
             let slugString = res.id+"-"+(res.name.replace(/\s+/g,"-")).toLowerCase();
-            let slug = slugString;
-            detlslug1 = `${slug}.html`;
+            let slugi = "gb/" + slug + "/" + slugString;
+            detlslug1 = `${slugi}.html`;
           } else {
             detlslug1 = `${res.slug.toString()}.html`;
           }

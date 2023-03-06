@@ -42,10 +42,10 @@ const PhotoSlider = (props: any) => {
     // }}
       //observerParents={true}
       coverflowEffect={{
-        rotate: 0,
-        stretch: 0,
+        rotate: 10,
+        stretch: -25,
         depth: 100,
-        modifier: 2,
+        modifier: 0.5,
         
         slideShadows: false,
       }}
