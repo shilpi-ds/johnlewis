@@ -278,8 +278,8 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 //console.log(detl);
         if (!detl.slug) {
           let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
-          let slug =slugString;
-          detlslug1 = `${slug}.html`;
+          let slugi ="gb/" +slug+"/"+slugString;
+          detlslug1 = `${slugi}.html`;
         } else {
           detlslug1 = `${detl.slug.toString()}.html`;
         }
