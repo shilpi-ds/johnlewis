@@ -243,18 +243,18 @@ const region: Template<TemplateRenderProps> = ({
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
-    console.log(entity,"entity")
-    if (typeof entity.dm_directoryChildren != "undefined") {
+   // console.log(entity,"entity")
+    if (typeof entity?.dm_directoryChildren != "undefined") {
 
-      if (entity.dm_directoryChildrenCount == 1) {
-        entity.dm_directoryChildren.map((res: any) => {
+      if (entity?.dm_directoryChildrenCount == 1) {
+        entity?.dm_directoryChildren?.map((res: any) => {
          //console.log(res,"res")
           let detlslug1 = "";
-          var region: any = entity.address.region?.toLowerCase();
+          var region: any = entity?.address?.region?.toLowerCase();
           var initialregion: any = region?.toString();
           var finalregion: any = initialregion?.replaceAll(" ", "-");
           if (!res.slug) {
-            let slugString = res.id+"-"+(res.name.replace(/\s+/g,"-")).toLowerCase();
+            let slugString = res?.id+"-"+(res?.name.replace(/\s+/g,"-")).toLowerCase();
             let slugi = "gb/" +finalregion+"/"+ entity.slug + "/" + slugString;
             detlslug1 = `${slugi}.html`;
           } else {
