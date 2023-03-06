@@ -13,6 +13,9 @@ import { StaticData } from "../../sites-global/staticData";
 import PageLayout from "../components/layouts/PageLayout";
 import "../index.css";
 import hanger from "../images/hanger.jpg";
+import Header from "../components/layouts/header";
+
+import Footer from "../components/layouts/footer";
 export const config: TemplateConfig = {
   stream: {
     $id: "404",
@@ -64,9 +67,13 @@ const FourOhFour: Template<TemplateRenderProps> = ({
   } = document;
   return (
     <>
-      <PageLayout gdata={_site}>
+      {/* <PageLayout gdata={_site}> */}
+      <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
+     
+ 
 
-      <div className="max-w-[1200px] m-auto border bg-[#cccccc] mb-[60px]">
+
+      <div className="max-w-[1200px] m-auto bg-[#cccccc] mb-[60px]">
     <div className="text-center mb-6 mt-20">
         <h1 className="text-3xl">HANG ON</h1>
     </div>
@@ -94,7 +101,10 @@ const FourOhFour: Template<TemplateRenderProps> = ({
 
           </div>
         </div> */}
-      </PageLayout>
+      {/* </PageLayout> */}
+      <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
+ footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
+ footer5cta={_site.c_footer5Cta} social={_site.c_socialFooter}/>
     </>
   );
 };
