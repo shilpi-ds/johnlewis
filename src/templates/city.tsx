@@ -271,17 +271,17 @@ const City: Template<TemplateRenderProps> = ({
     // let key: any = Object.keys(entity.hours)[0];
     var url = "";
     var country: any = entity?.address?.countryCode?.toLowerCase();
-    var name: any = entity.name?.toLowerCase();
-    var region: any = entity.address?.region?.toLowerCase();
+    var name: any = entity?.name?.toLowerCase();
+    var region: any = entity?.address?.region?.toLowerCase();
     var initialregion: any = region?.toString();
     var finalregion: any = initialregion?.replaceAll(" ", "-");
-    var city: any = entity.address.city?.toLowerCase();
+    var city: any = entity?.address?.city?.toLowerCase();
     var initialrcity: any = city?.toString();
     var finalcity: any = initialrcity?.replaceAll(" ", "-");
     
     var string: any = name?.toString();;
     //let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
-    let result:any=string.replace(/\s+/g,"-");
+    let result:any=string?.replace(/\s+/g,"-");
     if (!entity.slug) {
       url = "/" +country + "/" + finalregion + "/" + finalcity +
       "/" +
