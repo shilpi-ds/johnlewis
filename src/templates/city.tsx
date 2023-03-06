@@ -1,16 +1,13 @@
 import * as React from "react";
-// import Banner from "../components/banner";
 import GetDirectionloc from "../components/commons/GetDirectionloc";
-import constant from "../constant";
+//import constant from "../constant";
 import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
 import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
-//import GetDirectionloc from "../commons/GetDirectionloc";
-//import OpenClose from "../commons/openClose"
+
 import OpenCloseStatus from "../components/commons/OpenCloseStatus";
-// import { stagingBaseUrl } from "../constants";
-// import bannerImage from "../images/banner.png"
+
 import "../index.css";
 var currentUrl = "";
 import {
@@ -29,11 +26,12 @@ import loc2 from "../images/loc2.svg";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
 import Banner from "../components/locationDetail/banner";
 import { StaticData } from "../../sites-global/staticData";
-import { Addresssvg, mobilesvg, regionNames, stagingBaseurl } from "../../sites-global/global";
+
+import {stagingBaseurl} from "../config/answersHeadlessConfig";
 import { JsonLd } from "react-schemaorg";
 import Address from "../components/commons/Address";
 import PageLayout from "../components/layouts/PageLayout";
-//import Availability from "../components/locationDetail/Availability";
+
 import OpenClose from "../components/commons/openClose";
 import timesvg from "../images/loc3.svg";
 import favicon from "../images/john-lewis.svg";
@@ -248,15 +246,7 @@ const City: Template<TemplateRenderProps> = ({
     _site,
 
   } = document;
-  var address;
-  var c_companyrn;
-  var c_footerLinks;
-  var c_headerLinks1;
-  var c_phoneNumber;
-  var facebookPageUrl;
-  var instagramHandle;
-  var twitterHandle;
-  var c_tikTok;
+ 
   var sortedChildren = dm_directoryChildren?.sort(function (a: any, b: any) {
     var a = a.name;
     var b = b.name;
@@ -382,7 +372,7 @@ const City: Template<TemplateRenderProps> = ({
           "@type": "ListItem",
           position: index,
           item: {
-            "@id": `${constant.stagingBaseurl}${i.slug}`,
+            "@id": `${stagingBaseurl}${i.slug}`,
             name: i.name,
           },
         });
@@ -393,7 +383,7 @@ const City: Template<TemplateRenderProps> = ({
     "@type": "ListItem",
     position: currentIndex + 1,
     item: {
-      "@id": `${constant.stagingBaseurl}/${document.slug?.toString()}.html`,
+      "@id": `${stagingBaseurl}/${document.slug?.toString()}.html`,
       name: document.name,
     },
   });

@@ -14,13 +14,13 @@ import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
-import constant from "../constant";
+//import constant from "../constant";
 import Banner from "../components/locationDetail/banner";
 import { StaticData } from "../../sites-global/staticData";
 //import PageLayout from "../components/layouts/PageLayout";
-import {regionNames, stagingBaseurl } from "../../sites-global/global";
+//import {regionNames, stagingBaseurl } from "../../sites-global/global";
 import favicon from "../images/john-lewis.svg";
-import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
+import {GoogleSearchConsole,stagingBaseurl,regionNames} from "../config/answersHeadlessConfig";
 
 
 /**
@@ -250,7 +250,7 @@ const country: Template<TemplateRenderProps> = ({
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
-console.log(entity);
+//console.log(entity);
 if (typeof entity.dm_directoryChildren != "undefined") {
   if (entity.dm_directoryChildrenCount == 1) {
     entity.dm_directoryChildren.map((res: any) => {

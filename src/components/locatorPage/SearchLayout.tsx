@@ -150,7 +150,13 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
     getCoordinates(Search);
     }
     if(searchKey[0].value==""){
-       alert("Please fill this field");
+       $('.search-field label').css("display", "block");
+     }
+     else
+     {
+     
+        $('.search-field label').css("display", "none");
+     
      }
     //console.log(locationinbuit.length,"fisttimedispaly")
     if(locationinbuit.length==0){
@@ -164,7 +170,7 @@ const loading = useSearchState(s=>s.searchStatus.isLoading);
     setInputValue('');
   }
    const handleSetUserShareLocation = (value:any, userShareStatus:boolean) => {
-     console.log(value,center_latitude,center_longitude,"value");
+    // console.log(value,center_latitude,center_longitude,"value");
      setInputValue(value);
      if(userShareStatus){
        setCenterLatitude(center_latitude);

@@ -12,6 +12,7 @@ import favicon from "../images/john-lewis.svg";
 import { StaticData } from "../../sites-global/staticData";
 import PageLayout from "../components/layouts/PageLayout";
 import "../index.css";
+import hanger from "../images/hanger.jpg";
 export const config: TemplateConfig = {
   stream: {
     $id: "404",
@@ -64,7 +65,19 @@ const FourOhFour: Template<TemplateRenderProps> = ({
   return (
     <>
       <PageLayout gdata={_site}>
-        <div className="content-list">
+
+      <div className="max-w-[1200px] m-auto border bg-[#cccccc] mb-[60px]">
+    <div className="text-center mb-6 mt-20">
+        <h1 className="text-3xl">HANG ON</h1>
+    </div>
+    <div className="text-center text-xl pb-4 ">
+        <p>We can’t find the page you’re looking for. <br/> Please return to our <a className="underline" href="/">homepage.</a></p>
+    </div>
+    <img src={hanger} alt=""/>
+</div>
+        
+        {/* <div className="content-list">
+          <img src={hanger}/>
           <div className="container">
             <div className="sec-title text-center">
               <h1 className="" style={{ textAlign: "center" }}>
@@ -80,7 +93,7 @@ const FourOhFour: Template<TemplateRenderProps> = ({
 
 
           </div>
-        </div>
+        </div> */}
       </PageLayout>
     </>
   );

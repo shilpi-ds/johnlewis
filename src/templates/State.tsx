@@ -14,12 +14,12 @@ import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
 import HeaderBanner from "../components/commons/HeaderBanner";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
-import constant from "../constant";
+//import constant from "../constant";
 import Banner from "../components/locationDetail/banner";
 //import PageLayout from "../components/layouts/PageLayout";
-import { stagingBaseurl } from "../../sites-global/global";
+//import { stagingBaseurl } from "../../sites-global/global";
 import { StaticData } from "../../sites-global/staticData";
-import {GoogleSearchConsole} from "../config/answersHeadlessConfig";
+import {GoogleSearchConsole,stagingBaseurl} from "../config/answersHeadlessConfig";
 import favicon from "../images/john-lewis.svg";
 
 /**
@@ -243,41 +243,32 @@ const region: Template<TemplateRenderProps> = ({
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
-    console.log(entity,"entity");
-    var origin: any = null;
-    if (entity.address.city) {
-      origin = entity.address.city;
-    } else if (entity.address.region) {
-      origin = entity.address.region;
-    } else {
-      origin = entity.address.country;
-    }
-    // let key: any = Object.keys(entity.hours)[0];
-    var url = "";
-    var country: any = entity.address.countryCode?.toLowerCase();
-    var name: any = entity.name?.toLowerCase();
-    var region: any = entity.address.region?.toLowerCase();
-    var initialregion: any = region?.toString();
-    var finalregion: any = initialregion?.replaceAll(" ", "-");
-    var city: any = entity.address.city?.toLowerCase();
-    var initialrcity: any = city?.toString();
-    var finalcity: any = initialrcity?.replaceAll(" ", "-");
-    
-    var string: any = name?.toString();;
-    //let result: any = string.toLowerCase().split(' ').map(x=>x[0].toUpperCase()+x.slice(1)).join(' ');
-    let result:any=string.replace(/\s+/g,"-");
-    if (!entity.slug) {
-      url = "/" +country + "/" + finalregion + "/" + finalcity +
-      "/" +
-      entity.id+"-"+result +
-      ".html";
-    } else {
-      url = "/" +country + "/" + finalregion + "/" + finalcity +
-      "/" +
-      entity.slug?.toString() +
-      ".html";
-    }
+    console.log(entity,"entity")
+    if (typeof entity.dm_directoryChildren != "undefined") {
 
+      if (entity.dm_directoryChildrenCount == 1) {
+        entity.dm_directoryChildren.map((res: any) => {
+         //console.log(res,"res")
+          let detlslug1 = "";
+          var region: any = entity.address.region?.toLowerCase();
+          var initialregion: any = region?.toString();
+          var finalregion: any = initialregion?.replaceAll(" ", "-");
+          if (!res.slug) {
+            let slugString = res.id+"-"+(res.name.replace(/\s+/g,"-")).toLowerCase();
+            let slugi = "gb/" +finalregion+"/"+ entity.slug + "/" + slugString;
+            detlslug1 = `${slugi}.html`;
+          } else {
+            detlslug1 = `${res.slug.toString()}.html`;
+          }
+
+          detlslug = detlslug1;
+
+        })
+      } else {
+        detlslug = "gb/" + slug + "/" + entity.slug + ".html";
+      }
+
+    }
 
     return (
       <li className=" storelocation-category">

@@ -1094,3 +1094,7 @@ footer{
   padding-bottom: 0;
 
 }
+.search-field label{
+  color: red;
+  display: none;
+}

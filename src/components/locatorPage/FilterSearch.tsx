@@ -220,6 +220,7 @@ const FilterSearch = React.forwardRef<FilterHandle, FilterSearchProps>(
             );
           })}
         </InputDropdown>
+        <label>This field can't be empty</label>
       </div>
     );
   }

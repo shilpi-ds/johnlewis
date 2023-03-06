@@ -30,7 +30,7 @@ const PhotoSlider = (props: any) => {
    
      <Swiper
       effect={"coverflow"}
-      grabCursor={true}
+      //grabCursor={true}
       centeredSlides={true}
       slidesPerView={5}
       navigation={true}

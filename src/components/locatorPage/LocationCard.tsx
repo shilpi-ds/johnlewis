@@ -7,7 +7,7 @@ import GetDirection from "../commons/GetDirection";
 import loc1 from "../../images/loc1.svg";
 import loc2 from "../../images/loc2.svg";
 import loc3 from "../../images/loc3.svg";
-import timesvg from "../../images/watch-icn.svg"
+//import timesvg from "../../images/watch-icn.svg"
 import Address from "../commons/Address";
 import OpenClose from "../commons/openClose";
 import { StaticData } from "../../../sites-global/staticData";
@@ -126,32 +126,7 @@ function opentime(e: any) {
     ".html";
   }
   url=`/${link}`;
-//     var name: any = result.rawData.name?.toLowerCase();
-//   var region: any = result.rawData.address.region?.toLowerCase();
-//   var initialregion: any = region.toString();
-//   var finalregion: any = initialregion.replaceAll(" ", "-");
-//   var city: any = result.rawData.address.city?.toLowerCase();
-//   var initialrcity: any = city.toString();
-//   var finalcity: any = initialrcity.replaceAll(" ", "-");
-//   var string: any = name.toString();
-//   let result1: any = string.replaceAll(" ", "-");
-//  if (!result.rawData.slug) {
-//    url= `/${result.rawData.id}-${result1}.html`;
-//  } else {
-//    url= `/${result.rawData.slug.toString()}.html`;
-//  }
-// var urlloc;
-// if (result.rawData.slug) {
-//   urlloc = result.rawData.slug.toString();
-// }
-// else{
-//   var repspc=result.rawData.name.replace(/\s+/g,"-");
-//   urlloc=result.rawData.id+"-"+repspc.toLowerCase();
-  
-  
-// }
-//var urlloc=result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+"-"+result.rawData.name?.toLocaleLowerCase());
-//result.rawData.slug?result.rawData.slug.toString():(result.rawData.id+ " " + result.rawData.name);
+
   
   return (
     <div className={`result-list-inner-${result.index} result onhighLight bg-white shadow-lg max-w-[30.625rem] mt-5 mb-5"`}>
@@ -202,20 +177,7 @@ function opentime(e: any) {
                 <OpenCloseStatus
                 timezone={timezone ? timezone : defaultTimeZone}
                 hours={hours}
-        /><svg
-        className="mt-2"
-        xmlns="http://www.w3.org/2000/svg"
-        width="9.585"
-        height="4.793"
-        viewBox="0 0 9.585 4.793"
-      >
-        <path
-          id="hrd-drop"
-          d="M9,13.5l4.793,4.793L18.585,13.5Z"
-          transform="translate(-9 -13.5)"
-          fill="#00363f"
-        ></path>
-      </svg>
+        />{svgIcons.toggle}
           </Link>}
 
                 <div className={timeStatus + " daylist"}>

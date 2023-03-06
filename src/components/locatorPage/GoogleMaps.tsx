@@ -26,7 +26,7 @@ import { Marker } from "mapbox-gl";
 import loc1 from "../../images/loc1.svg";
 import loc2 from "../../images/loc2.svg";
 import loc3 from "../../images/loc3.svg";
-import locDetails from "../locDetails";
+//import locDetails from "../locDetails";
 import LocDetails from "../locDetails";
 let marker:any;
 /**
@@ -709,20 +709,7 @@ function UnwrappedGoogleMaps({
 
     const MarkerContent = (
       <div className="bg-white shadow-lg w-[21.875rem]">
-        <svg className="float-right m-2" width="15" height="15" viewBox="0 0 15 15" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <circle cx="7.5" cy="7.5" r="7.5" fill="#141414" fill-opacity="0.1" />
-            <g clip-path="url(#clip0_1_1048)">
-                <path
-                    d="M5.63329 9.83329L5.16663 9.36663L7.03329 7.49996L5.16663 5.63329L5.63329 5.16663L7.49996 7.03329L9.36663 5.16663L9.83329 5.63329L7.96663 7.49996L9.83329 9.36663L9.36663 9.83329L7.49996 7.96663L5.63329 9.83329Z"
-                    fill="#353532" />
-            </g>
-            <defs>
-                <clipPath id="clip0_1_1048">
-                    <rect width="5" height="5" fill="white" transform="translate(5 5)" />
-                </clipPath>
-            </defs>
-        </svg>
+     {svgIcons.crossjohn}
 
         <div className="flex justify-between items-center pt-3 ml-4">
             <h5 className="underline underline-offset-8 font-bold"><Link href={`${url}`}>{result.name} </Link></h5>

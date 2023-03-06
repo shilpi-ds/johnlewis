@@ -28,6 +28,7 @@ export function slugify(slugString:any){
   slugString = slugString.replaceAll("'","");
   return slugString.toLowerCase();
 };
+export const regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 export const defaultTimeZone = "Europe/London";
 export const GoogleSearchConsole = { 
   name : "google-site-verification",

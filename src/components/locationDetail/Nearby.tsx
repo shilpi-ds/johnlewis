@@ -1,5 +1,5 @@
 import * as React from "react";
-import ApiCall from "../../Apis/ApiCall";
+//import ApiCall from "../../Apis/ApiCall";
 import Address from "../commons/Address";
 import GetDirection from "../commons/GetDirectionloc";
 //import OpenClose from "../commons/openClose"
@@ -7,8 +7,7 @@ import OpenCloseStatus from "../commons/OpenCloseStatus";
 import loc3 from "../../images/loc3.svg";
 import loc1 from "../../images/loc1.svg";
 import loc2 from "../../images/loc2.svg";
-import { Addresssvg, mobilesvg, View_Store } from "../../../sites-global/global";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+//import { Addresssvg, mobilesvg, View_Store } from "../../../sites-global/global";
 import { Link } from "@yext/pages/components";
 import { StaticData } from "../../../sites-global/staticData";
 //import locDetails from "../locDetails";
@@ -26,47 +25,11 @@ export default function Nearby(props: any) {
   return (
 
     <>
-      {/* <Splide
-        id="splide-nearby"
-        options={{
-          rewind: false,
-          type: "slide",
-          perPage: 3,
-          perMove: 1,
-          arrows: false,
-          drag: false,
-          pagination: false,
-          lazyLoad: "nearby",
-          breakpoints: {
-            1279: {
-              perPage: 1,
-              drag: true,
-              pagination: true,
-              arrows: false,
-              type: "splide",
-            },
-          },
-        }}
-      > */}
+
         {neabyData.map((location: any, index: Number) => {
 
            let url = "";
-          //  var name: any = location.data.name?.toLowerCase();
-          //  var region: any = location.data.address.region?.toLowerCase();
-          //  var initialregion: any = region.toString();
-          //  var finalregion: any = initialregion.replaceAll(" ", "-");
-          //  var city: any = location.data.address.city?.toLowerCase();
-          //  var initialrcity: any = city.toString();
-          //  var finalcity: any = initialrcity.replaceAll(" ", "-");
-          //  var string: any = name.toString();
-          //  let result1: any = string.replaceAll(" ", "-");
-          //  if (!location.data.slug) {
-          //    url = `/${location.data.id}-${result1}.html`;
-          //  } else {
-          //    url = `/${location.data.slug.toString()}.html`;
-          //  }
-
-           var name: any = location.data.name?.toLowerCase();
+            var name: any = location.data.name?.toLowerCase();
   var mainPhone: any = location.data.mainPhone;
   var country: any = location.data.address.countryCode?.toLowerCase();
   var region: any = location.data.address.region
@@ -93,23 +56,7 @@ export default function Nearby(props: any) {
   }
   url=`/${link}`;
   
-  // console.log(link, "link");
-  // if (!location.data.slug) {
-  //   url = `/${link}.html`;
-  // } else {
-  //   url = `/${link}`;
-  // }
-//           var urlloc;
-// if (location.data.slug) {
-//   urlloc = location.data.slug.toString();
-// }
-// else{
-//   var repspc=location.data.name.replace(/\s+/g,"-");
-//   urlloc=location.data.id+"-"+repspc.toLowerCase();
-  
-  
-// }
-          //var urlloc=location.data.slug?location.data.slug.toString():(location.data.id+"-"+location.data.name.toLowerCase());
+
           if (index > 0) {
             return (
               <>
