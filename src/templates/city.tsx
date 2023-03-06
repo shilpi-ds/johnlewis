@@ -261,18 +261,18 @@ const City: Template<TemplateRenderProps> = ({
   const childrenDivs = dm_directoryChildren?.map((entity: any) => {
    // console.log(entity)
     var origin: any = null;
-    if (entity.address.city) {
-      origin = entity.address.city;
-    } else if (entity.address.region) {
-      origin = entity.address.region;
+    if (entity?.address?.city) {
+      origin = entity?.address?.city;
+    } else if (entity?.address?.region) {
+      origin = entity?.address?.region;
     } else {
-      origin = entity.address.country;
+      origin = entity?.address?.country;
     }
     // let key: any = Object.keys(entity.hours)[0];
     var url = "";
-    var country: any = entity.address.countryCode?.toLowerCase();
+    var country: any = entity?.address?.countryCode?.toLowerCase();
     var name: any = entity.name?.toLowerCase();
-    var region: any = entity.address.region?.toLowerCase();
+    var region: any = entity.address?.region?.toLowerCase();
     var initialregion: any = region?.toString();
     var finalregion: any = initialregion?.replaceAll(" ", "-");
     var city: any = entity.address.city?.toLowerCase();
