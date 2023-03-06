@@ -259,8 +259,8 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 
       if (!res.slug) {
         let slugString = res.id+"-"+res.name;
-        let slugi = "gb/" +slug+"/"+slugString;
-        detlslug1 = `${slugi}.html`;
+        let slug = slugString;
+        detlslug1 = `${slug}.html`;
       } else {
         detlslug1 = `${res.slug.toString()}.html`;
       }
@@ -278,7 +278,7 @@ if (typeof entity.dm_directoryChildren != "undefined") {
 //console.log(detl);
         if (!detl.slug) {
           let slugString = detl.id+"-"+(detl.name.replace(/\s+/g,"-")).toLowerCase();
-          let slugi ="gb/" +slug+"/"+slugString;
+          let slugi =slug+"/"+entity.slug+"/"+slugString;
           detlslug1 = `${slugi}.html`;
         } else {
           detlslug1 = `${detl.slug.toString()}.html`;
