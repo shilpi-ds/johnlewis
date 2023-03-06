@@ -74,7 +74,7 @@ const FourOhFour: Template<TemplateRenderProps> = ({
 
 
       <div className="max-w-[1200px] m-auto bg-[#cccccc] mb-[60px]">
-    <div className="text-center mb-6 mt-20">
+    <div className="text-center mb-6 pt-20">
         <h1 className="text-3xl">HANG ON</h1>
     </div>
     <div className="text-center text-xl pb-4 ">
