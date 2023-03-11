@@ -95,7 +95,7 @@ console.log(props);
         <div className="bg-[#102B2B]">
             <div className="flex  justify-between container max-w-[75rem] mx-auto py-7">
                 <div className="flex">
-                   <img src={footer5img.url}/> 
+                   <img src={footer5img.url} alt=""/> 
                     <p className="text-white pl-5"><a href="">{footer5cta.label}</a></p>
                 </div>
             
@@ -104,7 +104,7 @@ console.log(props);
             {social?.map((sociallink: any) => {
                     return (
                       <>
-                             <li><a href={sociallink.socialLink}><img src={sociallink.socialImage.url} width="24" height="24"/></a></li>
+                             <li><a href={sociallink.socialLink}><img src={sociallink.socialImage.url} width="24" height="24" alt=""/></a></li>
                       </>
                     );
                 })} 

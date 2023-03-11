@@ -67,12 +67,9 @@ const FourOhFour: Template<TemplateRenderProps> = ({
   } = document;
   return (
     <>
-      {/* <PageLayout gdata={_site}> */}
-      <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
      
- 
-
-
+      <Header logo={_site.c_johnLogo} links={_site.c_headerMenus} topmenu={_site.c_headerTopMenus} free={_site.c_freeDelivery}/>
+    
       <div className="max-w-[1200px] m-auto bg-[#cccccc] mb-[60px]">
     <div className="text-center mb-6 pt-20">
         <h1 className="text-3xl">HANG ON</h1>
@@ -83,25 +80,7 @@ const FourOhFour: Template<TemplateRenderProps> = ({
     <img src={hanger} alt=""/>
 </div>
         
-        {/* <div className="content-list">
-          <img src={hanger}/>
-          <div className="container">
-            <div className="sec-title text-center">
-              <h1 className="" style={{ textAlign: "center" }}>
-                {StaticData.PagenotFound}
-              </h1>
-              <p>{StaticData.cantfind_page}.</p>
-              <p>{StaticData.Youcouldtry}</p>
-              <div className="button-bx max-w-[45rem] !mx-auto !mt-5">
-                <a className="btn" href="javascript:history.back()">{StaticData.Previuspage} &gt;</a>
-                <a className="btn" href="/">{StaticData.homePage} &gt;</a>
-              </div>
-            </div>
-
-
-          </div>
-        </div> */}
-      {/* </PageLayout> */}
+      
       <Footer footer1={_site.c_footer1Cta} footer1title={_site.c_footer1Title} footer1description={_site.c_footer1Description} footer2={_site.c_footer2} footer3title={_site.c_footer3Title} footer3cta={_site.c_footer3Cta}
  footer3barcta={_site.c_footer3BarcodeCta} footer3barimg={_site.c_footer3Barcode} footer4links={_site.c_footer4Links} footer4title={_site.c_footer4Title} footer4Description={_site.c_footer4Description} footer5img={_site.c_footer5Image}
  footer5cta={_site.c_footer5Cta} social={_site.c_socialFooter}/>

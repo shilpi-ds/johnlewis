@@ -3,8 +3,7 @@ import { useState } from 'react';
 import $ from "jquery";
 
 const Accordion = ({ content,title }) => {
-  //console.log(title);
-  //const [toggle, setToggle] = useState(!null);
+ 
 
   const [section, setSection] = useState(0);
   const [isActive, setIsActive] = useState('section-chat');
@@ -13,7 +12,7 @@ const Accordion = ({ content,title }) => {
     setSection(e.target.id);
   };
 
-//console.log(content);
+
   return (
     <>
     <div className="faq's mt-[30px] flex justify-center mb-[3.75rem]">
@@ -27,7 +26,7 @@ const Accordion = ({ content,title }) => {
 
         <div id={index} className={`flex items-center justify-between pl-4 py-6 drop-shadow-[0_0px_1px_rgba(0,0,0,0.15)] bg-white ${section==index?isActive:''}`} onClick={(e) => {handleClick(e)}} style={{ cursor: "pointer" }}>
          <div  className="flex items-center gap-[16px]" >
-          {/* <div className="faq-head flex items-center gap-4 pr-12" onClick={showAnswer(index)} style={{ cursor: "pointer" }}> */}
+         
             <span>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="6" cy="6" r="6" fill="#141414" fill-opacity="0.5" />
@@ -53,13 +52,13 @@ const Accordion = ({ content,title }) => {
        })}
        </div></div>
  
-   {/* {content.map((i) => ( */}
+  
           <div className="bg-[#F1F6FA] w-[648px] h-[472px] rounded-2xl flex mt-[2rem]">
             <div className="w-[472px] inline-block right-0 mt-[2.5rem] ml-[9rem]">
-              {/* <p className="text-lg font-semibold">Do I need to pay to Instapay even when there is no transaction going on in my business?</p> */}
+         
               <p className="pt-10">{content[section].answer}</p>
             </div></div>
-            {/* ))} */}
+     
            </div>
 </>
   );
